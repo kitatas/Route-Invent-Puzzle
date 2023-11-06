@@ -8,7 +8,7 @@ using VContainer.Unity;
 
 namespace GameOff2023.InGame.Presentation.Presenter
 {
-    public sealed class StatePresenter : IInitializable, IDisposable
+    public sealed class StatePresenter : IStartable, IDisposable
     {
         private readonly StateUseCase _stateUseCase;
         private readonly StateController _stateController;
@@ -21,7 +21,7 @@ namespace GameOff2023.InGame.Presentation.Presenter
             _tokenSource = new CancellationTokenSource();
         }
 
-        public void Initialize()
+        public void Start()
         {
             _stateController.InitAsync(_tokenSource.Token).Forget();
 
