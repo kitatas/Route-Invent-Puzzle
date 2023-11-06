@@ -19,6 +19,7 @@ namespace GameOff2023.InGame.Installer
             // Presenter
             builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>
             {
+                entryPoints.Add<ModalPresenter>();
                 entryPoints.Add<StatePresenter>();
             });
         }
