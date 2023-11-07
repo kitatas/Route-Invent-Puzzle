@@ -21,6 +21,10 @@ namespace GameOff2023.Common.Presentation.Presenter
             _soundUseCase.playBgm
                 .Subscribe(x => _soundView.PlayBgm(x.clip, x.delay))
                 .AddTo(_soundView);
+
+            _soundUseCase.playSe
+                .Subscribe(x => _soundView.PlaySe(x.clip, x.delay))
+                .AddTo(_soundView);
         }
     }
 }

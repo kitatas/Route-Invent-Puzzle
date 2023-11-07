@@ -13,4 +13,10 @@ namespace GameOff2023.Common
         Main,
         Result,
     }
+
+    public enum SeType
+    {
+        None,
+        Decision,
+    }
 }
