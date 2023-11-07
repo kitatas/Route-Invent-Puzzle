@@ -5,4 +5,12 @@ namespace GameOff2023.Common
         None,
         Information,
     }
+
+    public enum BgmType
+    {
+        None,
+        Title,
+        Main,
+        Result,
+    }
 }
