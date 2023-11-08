@@ -8,6 +8,7 @@ namespace GameOff2023.Common
         {
             return type switch
             {
+                ModalType.Option => ModalConfig.OPTION_PATH,
                 ModalType.Information => ModalConfig.INFORMATION_PATH,
                 _ => throw new Exception(),
             };

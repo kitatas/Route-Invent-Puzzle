@@ -1,6 +1,8 @@
 using GameOff2023.Base.Presentation.View;
+using GameOff2023.Common;
 using GameOff2023.InGame.Presentation.View;
 using UnityEngine;
+using UnityScreenNavigator.Runtime.Core.Modal;
 using VContainer.Unity;
 
 namespace GameOff2023.InGame.Presentation.Presenter
@@ -21,7 +23,8 @@ namespace GameOff2023.InGame.Presentation.Presenter
                 buttonView.Init();
             }
 
-            _topView.Init();
+            var modalContainer = ModalContainer.Find(ModalConfig.INGAME_CONTAINER);
+            _topView.Init(modalContainer);
         }
     }
 }
