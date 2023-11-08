@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using GameOff2023.Common;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Modal;
 
@@ -10,7 +12,6 @@ namespace GameOff2023.Base.Presentation.View
 
         public override IEnumerator Initialize()
         {
-            closeButtonView.Init();
             closeButtonView.AddPushEvent(() =>
             {
                 // モーダルの非表示
@@ -18,13 +19,12 @@ namespace GameOff2023.Base.Presentation.View
                 modalContainer.Pop(true);
             });
 
-            Init();
-
             yield break;
         }
 
-        protected virtual void Init()
+        public virtual void SetUp(Action<SeType> playSe)
         {
+            closeButtonView.Init(playSe);
         }
     }
 }
