@@ -1,5 +1,6 @@
 using System;
 using GameOff2023.Common;
+using MagicTween;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,10 +19,18 @@ namespace GameOff2023.Base.Presentation.View
             push.Subscribe(_ => _pushed?.Invoke())
                 .AddTo(this);
 
+            var defaultScale = transform.localScale;
+
             AddPushEvent(() =>
             {
                 // 効果音再生
                 playSe?.Invoke(seType);
+
+                transform
+                    .TweenLocalScale(defaultScale * 0.8f, UiConfig.PUSH_TIME)
+                    .SetEase(Ease.Linear)
+                    .SetLoops(2, LoopType.Yoyo)
+                    .SetLink(gameObject);
             });
         }
 

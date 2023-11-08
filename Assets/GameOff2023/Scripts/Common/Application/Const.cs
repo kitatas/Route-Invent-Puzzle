@@ -10,4 +10,9 @@ namespace GameOff2023.Common
         public const string OPTION_PATH = BASE_PATH + "/Option";
         public const string INFORMATION_PATH = BASE_PATH + "/Information";
     }
+
+    public sealed class UiConfig
+    {
+        public const float PUSH_TIME = 0.1f;
+    }
 }
