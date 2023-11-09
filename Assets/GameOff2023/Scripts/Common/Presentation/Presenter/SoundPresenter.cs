@@ -18,6 +18,14 @@ namespace GameOff2023.Common.Presentation.Presenter
 
         public void Start()
         {
+            _soundUseCase.bgmVolume
+                .Subscribe(_soundView.SetBgmVolume)
+                .AddTo(_soundView);
+
+            _soundUseCase.seVolume
+                .Subscribe(_soundView.SetSeVolume)
+                .AddTo(_soundView);
+
             _soundUseCase.playBgm
                 .Subscribe(x => _soundView.PlayBgm(x.clip, x.delay))
                 .AddTo(_soundView);
