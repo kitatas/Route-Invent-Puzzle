@@ -21,6 +21,7 @@ namespace GameOff2023.Common.Installer
             builder.RegisterInstance<SeTable>(seTable);
 
             // Repository
+            builder.Register<SaveRepository>(Lifetime.Singleton);
             builder.Register<SoundRepository>(Lifetime.Singleton);
 
             // UseCase

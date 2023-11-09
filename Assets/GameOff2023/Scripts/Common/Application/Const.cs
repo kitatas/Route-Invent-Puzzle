@@ -15,4 +15,14 @@ namespace GameOff2023.Common
     {
         public const float PUSH_TIME = 0.1f;
     }
+
+    public sealed class SoundConfig
+    {
+        public const float INIT_VOLUME = 0.5f;
+    }
+
+    public sealed class SaveConfig
+    {
+        public const string ES3_KEY = "";
+    }
 }
