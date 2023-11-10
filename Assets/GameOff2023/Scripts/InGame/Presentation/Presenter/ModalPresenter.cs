@@ -27,7 +27,7 @@ namespace GameOff2023.InGame.Presentation.Presenter
             }
 
             var modalContainer = ModalContainer.Find(ModalConfig.INGAME_CONTAINER);
-            _topView.Init(modalContainer, x => _soundUseCase.PlaySe(x));
+            _topView.Init(modalContainer);
         }
     }
 }
