@@ -5,13 +5,13 @@ using VContainer.Unity;
 
 namespace GameOff2023.InGame.Presentation.Presenter
 {
-    public sealed class InformationModalPresenter : IStartable
+    public sealed class InformationPresenter : IStartable
     {
         private readonly SoundUseCase _soundUseCase;
         private readonly InformationModalView _informationModal;
 
         [Inject]
-        public InformationModalPresenter(SoundUseCase soundUseCase, InformationModalView informationModal)
+        public InformationPresenter(SoundUseCase soundUseCase, InformationModalView informationModal)
         {
             _soundUseCase = soundUseCase;
             _informationModal = informationModal;

@@ -6,14 +6,14 @@ using VContainer.Unity;
 
 namespace GameOff2023.InGame.Presentation.Presenter
 {
-    public sealed class OptionModalPresenter : IStartable
+    public sealed class OptionPresenter : IStartable
     {
         private readonly SoundUseCase _soundUseCase;
         private readonly OptionModalView _optionModalView;
         private readonly VolumeView _volumeView;
 
         [Inject]
-        public OptionModalPresenter(SoundUseCase soundUseCase, OptionModalView optionModalView, VolumeView volumeView)
+        public OptionPresenter(SoundUseCase soundUseCase, OptionModalView optionModalView, VolumeView volumeView)
         {
             _soundUseCase = soundUseCase;
             _optionModalView = optionModalView;
