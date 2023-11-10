@@ -31,6 +31,7 @@ namespace GameOff2023.Common.Domain.UseCase
         public IReadOnlyReactiveProperty<float> seVolume => _seVolume;
         public IObservable<SoundEntity> playBgm => _playBgm;
         public IObservable<SoundEntity> playSe => _playSe;
+        public VolumeEntity volumeEntity => new VolumeEntity(bgmVolume.Value, seVolume.Value);
 
         public void SetBgmVolume(float value)
         {
