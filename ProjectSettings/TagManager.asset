@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Panel
+    uniqueID: 3919224653
+    locked: 0
+  - name: Object
+    uniqueID: 1442148361
+    locked: 0
+  - name: Goal
+    uniqueID: 2210687765
+    locked: 0
+  - name: Player
+    uniqueID: 4180358175
+    locked: 0
