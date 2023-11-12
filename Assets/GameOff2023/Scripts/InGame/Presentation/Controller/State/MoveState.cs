@@ -7,10 +7,12 @@ namespace GameOff2023.InGame.Presentation.Controller
 {
     public sealed class MoveState : BaseState
     {
+        private readonly GoalView _goalView;
         private readonly PlayerView _playerView;
 
-        public MoveState(PlayerView playerView)
+        public MoveState(GoalView goalView, PlayerView playerView)
         {
+            _goalView = goalView;
             _playerView = playerView;
         }
 
@@ -25,11 +27,18 @@ namespace GameOff2023.InGame.Presentation.Controller
         {
             while (true)
             {
+                if (_goalView.IsGoal(_playerView))
+                {
+                    break;
+                }
+
                 var deltaTime = Time.deltaTime;
                 _playerView.Tick(deltaTime);
 
                 await UniTask.Yield(token);
             }
+
+            await _playerView.TweenPositionAsync(_goalView.currentPosition, token);
 
             return GameState.None;
         }

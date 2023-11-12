@@ -28,6 +28,7 @@ namespace GameOff2023.InGame.Installer
 
             // View
             builder.RegisterComponentInHierarchy<EditCompButtonView>();
+            builder.RegisterComponentInHierarchy<GoalView>();
             builder.RegisterComponentInHierarchy<PlayerView>();
             builder.RegisterComponentInHierarchy<TopView>();
         }
