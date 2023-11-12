@@ -9,10 +9,16 @@ namespace GameOff2023.InGame.Presentation.View
     {
         [SerializeField] private float moveSpeed = default;
 
+        [HideInInspector] public Direction direction = default;
+
+        public void SetUp()
+        {
+            direction = Direction.Up;
+        }
+
         public void Tick(float deltaTime)
         {
-            var direction = Vector2.up;
-            transform.Translate(deltaTime * moveSpeed * direction);
+            transform.Translate(deltaTime * moveSpeed * direction.ToVector2());
         }
 
         public async UniTask TweenPositionAsync(Vector3 target, CancellationToken token)

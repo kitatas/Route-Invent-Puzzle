@@ -20,6 +20,8 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask InitAsync(CancellationToken token)
         {
+            _playerView.SetUp();
+
             await UniTask.Yield(token);
         }
 
@@ -34,6 +36,9 @@ namespace GameOff2023.InGame.Presentation.Controller
 
                 var deltaTime = Time.deltaTime;
                 _playerView.Tick(deltaTime);
+
+                // TODO: StageDataの読込+生成
+                UniEx.ListExtension.Each(Object.FindObjectsOfType<CurvePanelView>(), x => x.Curve(_playerView));
 
                 await UniTask.Yield(token);
             }

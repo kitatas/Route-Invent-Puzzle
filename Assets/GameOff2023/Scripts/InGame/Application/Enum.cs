@@ -6,4 +6,22 @@ namespace GameOff2023.InGame
         Edit,
         Move,
     }
+
+    public enum Direction
+    {
+        None,
+        Up,
+        Down,
+        Left,
+        Right,
+    }
+
+    public enum CurveType
+    {
+        None,
+        UpLeft,
+        UpRight,
+        DownLeft,
+        DownRight,
+    }
 }
