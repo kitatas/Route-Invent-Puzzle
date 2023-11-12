@@ -4,5 +4,6 @@ namespace GameOff2023.InGame
     {
         None,
         Edit,
+        Move,
     }
 }

@@ -24,7 +24,7 @@ namespace GameOff2023.InGame.Presentation.Controller
         {
             await _editCompButtonView.PushAsync(token);
             
-            return GameState.None;
+            return GameState.Move;
         }
     }
 }
