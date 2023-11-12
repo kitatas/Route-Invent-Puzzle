@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using GameOff2023.Common;
 using MagicTween;
 using UniRx;
@@ -35,6 +37,11 @@ namespace GameOff2023.Base.Presentation.View
         }
 
         protected IObservable<Unit> push => button.OnClickAsObservable();
+
+        public async UniTask PushAsync(CancellationToken token)
+        {
+            await push.ToUniTask(true, token);
+        }
 
         public void AddPushEvent(Action action) => _pushed += action;
     }

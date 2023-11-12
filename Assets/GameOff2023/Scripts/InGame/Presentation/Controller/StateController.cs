@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
@@ -9,11 +10,9 @@ namespace GameOff2023.InGame.Presentation.Controller
     {
         private readonly List<BaseState> _states;
 
-        public StateController()
+        public StateController(IEnumerable<BaseState> states)
         {
-            _states = new List<BaseState>
-            {
-            };
+            _states = states.ToList();
         }
 
         public async UniTaskVoid InitAsync(CancellationToken token)
