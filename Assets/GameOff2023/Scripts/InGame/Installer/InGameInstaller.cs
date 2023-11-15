@@ -1,7 +1,10 @@
+using GameOff2023.InGame.Data.DataStore;
+using GameOff2023.InGame.Domain.Repository;
 using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.Controller;
 using GameOff2023.InGame.Presentation.Presenter;
 using GameOff2023.InGame.Presentation.View;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -9,9 +12,20 @@ namespace GameOff2023.InGame.Installer
 {
     public sealed class InGameInstaller : LifetimeScope
     {
+        [SerializeField] private Transform stage = default;
+
+        [SerializeField] private CellData cellData = default;
+
         protected override void Configure(IContainerBuilder builder)
         {
+            // DataStore
+            builder.RegisterInstance<CellData>(cellData);
+
+            // Repository
+            builder.Register<StageRepository>(Lifetime.Scoped);
+
             // UseCase
+            builder.Register<StageUseCase>(Lifetime.Scoped).WithParameter(stage);
             builder.Register<StateUseCase>(Lifetime.Scoped);
 
             // Controller
