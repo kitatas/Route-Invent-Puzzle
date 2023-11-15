@@ -15,11 +15,13 @@ namespace GameOff2023.InGame.Installer
         [SerializeField] private Transform stage = default;
 
         [SerializeField] private CellData cellData = default;
+        [SerializeField] private PanelTable panelTable = default;
 
         protected override void Configure(IContainerBuilder builder)
         {
             // DataStore
             builder.RegisterInstance<CellData>(cellData);
+            builder.RegisterInstance<PanelTable>(panelTable);
 
             // Repository
             builder.Register<StageRepository>(Lifetime.Scoped);

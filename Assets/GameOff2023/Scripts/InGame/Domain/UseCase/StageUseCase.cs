@@ -44,6 +44,20 @@ namespace GameOff2023.InGame.Domain.UseCase
                         throw new Exception();
                 }
             });
+
+            var count = 0;
+            stageData.panels.Each(panel =>
+            {
+                for (int i = 0; i < panel.num; i++)
+                {
+                    count++;
+                    var data = _stageRepository.FindPanelData(panel.type);
+                    var view = Object.Instantiate(data.view);
+                    var x = count.IsEven() ? 13.5f : 12.0f;
+                    var y = 8.0f - Mathf.CeilToInt(count / 2.0f);
+                    view.SetPosition(new Vector3(x, y, 0.0f));
+                }
+            });
         }
     }
 }
