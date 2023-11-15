@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea5783bba45436188479fdae137be94, type: 3}
+  m_Name: CellData
+  m_EditorClassIdentifier: 
+  cellView: {fileID: 2273158967649656865, guid: 0c3ec740637d9478f830a4409b4b1b27, type: 3}
