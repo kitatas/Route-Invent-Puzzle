@@ -32,6 +32,7 @@ namespace GameOff2023.InGame.Installer
             builder.Register<StateController>(Lifetime.Scoped);
             builder.Register<BaseState, EditState>(Lifetime.Scoped);
             builder.Register<BaseState, MoveState>(Lifetime.Scoped);
+            builder.Register<BaseState, SetUpState>(Lifetime.Scoped);
 
             // Presenter
             builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>
