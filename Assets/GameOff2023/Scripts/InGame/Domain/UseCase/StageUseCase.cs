@@ -1,5 +1,8 @@
+using System;
 using GameOff2023.InGame.Domain.Repository;
+using UniEx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace GameOff2023.InGame.Domain.UseCase
 {
@@ -24,6 +27,23 @@ namespace GameOff2023.InGame.Domain.UseCase
                     cell.SetPosition(new Vector3(x, y, 0.0f));
                 }
             }
+
+            var stageData = _stageRepository.FindStageData();
+            stageData.cells.Each(cell =>
+            {
+                switch (cell.type)
+                {
+                    case ObjectType.Player:
+                        Object.FindObjectOfType<Presentation.View.PlayerView>().SetPosition(cell.position);
+                        break;
+                    case ObjectType.Goal:
+                        Object.FindObjectOfType<Presentation.View.GoalView>().SetPosition(cell.position);
+                        break;
+                    // TODO: 他objectはtableからprefab生成する
+                    default:
+                        throw new Exception();
+                }
+            });
         }
     }
 }

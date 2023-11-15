@@ -25,4 +25,11 @@ namespace GameOff2023.InGame
         DownLeft,
         DownRight,
     }
+
+    public enum ObjectType
+    {
+        None = 0,
+        Player = 1,
+        Goal = 2,
+    }
 }

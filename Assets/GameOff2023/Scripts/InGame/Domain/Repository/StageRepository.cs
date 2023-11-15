@@ -15,5 +15,18 @@ namespace GameOff2023.InGame.Domain.Repository
         {
             return _cellData.cell;
         }
+
+        public StageData FindStageData()
+        {
+            // TODO: ベタ書き修正
+            return new StageData
+            {
+                cells = new[]
+                {
+                    new Data.Entity.CellEntity { type = (ObjectType)1, x = 2, y = 2 },
+                    new Data.Entity.CellEntity { type = (ObjectType)2, x = 5, y = 7 },
+                },
+            };
+        }
     }
 }
