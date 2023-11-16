@@ -1,4 +1,5 @@
 using System;
+using GameOff2023.Common.Data.Entity;
 using GameOff2023.InGame.Domain.Repository;
 using UniEx;
 using UnityEngine;
@@ -9,11 +10,13 @@ namespace GameOff2023.InGame.Domain.UseCase
     public sealed class StageUseCase
     {
         private readonly Transform _stage;
+        private readonly StateEntity _stateEntity;
         private readonly StageRepository _stageRepository;
 
-        public StageUseCase(Transform stage, StageRepository stageRepository)
+        public StageUseCase(Transform stage, StateEntity stateEntity, StageRepository stageRepository)
         {
             _stage = stage;
+            _stateEntity = stateEntity;
             _stageRepository = stageRepository;
         }
 
@@ -55,7 +58,7 @@ namespace GameOff2023.InGame.Domain.UseCase
                     var view = Object.Instantiate(data.view);
                     var x = count.IsEven() ? 13.5f : 12.0f;
                     var y = 8.0f - Mathf.CeilToInt(count / 2.0f);
-                    view.SetPosition(new Vector3(x, y, 0.0f));
+                    view.SetUp(_stateEntity.IsState, new Vector3(x, y, 0.0f));
                 }
             });
         }
