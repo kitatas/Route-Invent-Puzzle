@@ -1,3 +1,4 @@
+using GameOff2023.Common.Data.Entity;
 using GameOff2023.InGame.Data.DataStore;
 using GameOff2023.InGame.Domain.Repository;
 using GameOff2023.InGame.Domain.UseCase;
@@ -22,6 +23,9 @@ namespace GameOff2023.InGame.Installer
             // DataStore
             builder.RegisterInstance<CellData>(cellData);
             builder.RegisterInstance<PanelTable>(panelTable);
+
+            // Entity
+            builder.Register<StateEntity>(Lifetime.Scoped);
 
             // Repository
             builder.Register<StageRepository>(Lifetime.Scoped);

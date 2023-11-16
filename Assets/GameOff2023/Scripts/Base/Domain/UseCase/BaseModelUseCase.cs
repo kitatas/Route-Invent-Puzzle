@@ -15,7 +15,7 @@ namespace GameOff2023.Base.Domain.UseCase
 
         public T currentValue => property.Value;
 
-        public void Set(T value)
+        public virtual void Set(T value)
         {
             _property.Value = value;
         }
