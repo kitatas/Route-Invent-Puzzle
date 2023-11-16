@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace GameOff2023.InGame
 {
     public sealed class GameConfig
@@ -11,6 +13,12 @@ namespace GameOff2023.InGame
         public const int Y = 7;
 
         public const float JUDGE_DISTANCE = 0.01f;
+    }
+
+    public sealed class CellConfig
+    {
+        public static readonly Color DEFAULT_COLOR = Color.cyan;
+        public static readonly Color PLACEABLE_COLOR = Color.yellow;
     }
 
     public sealed class PlayerConfig
