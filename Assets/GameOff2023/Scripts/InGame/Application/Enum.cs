@@ -47,5 +47,6 @@ namespace GameOff2023.InGame
         None,
         Empty,
         Fixed,
+        Stock,
     }
 }

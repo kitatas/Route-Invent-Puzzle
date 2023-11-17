@@ -35,6 +35,20 @@ namespace GameOff2023.InGame.Domain.UseCase
                 }
             }
 
+            for (int i = 0; i < 2; i++)
+            {
+                var x = 12.0f + 1.5f * i;
+                for (int j = 0; j < 5; j++)
+                {
+                    var y = 7.0f - j;
+                    var cell = Object.Instantiate(_stageRepository.GetCell(), _stage);
+                    cell.SetPosition(new Vector3(x, y, 0.0f));
+                    _stageEntity.AddStock(cell);
+
+                    cell.SetType(CellType.Stock);
+                }
+            }
+
             var stageData = _stageRepository.FindStageData();
             stageData.cells.Each(cell =>
             {

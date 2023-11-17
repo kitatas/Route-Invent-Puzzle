@@ -21,6 +21,12 @@ namespace GameOff2023.InGame.Presentation.View
 
         public void SetColor(Color color)
         {
+            // Stockの場合は色変えしない
+            if (cellType == CellType.Stock)
+            {
+                return;
+            }
+
             spriteRenderer.color = color;
         }
     }
