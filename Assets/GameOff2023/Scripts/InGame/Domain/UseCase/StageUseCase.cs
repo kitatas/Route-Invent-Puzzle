@@ -79,7 +79,10 @@ namespace GameOff2023.InGame.Domain.UseCase
                     var view = Object.Instantiate(data.view);
                     var x = count.IsEven() ? 13.5f : 12.0f;
                     var y = 8.0f - Mathf.CeilToInt(count / 2.0f);
-                    view.SetUp(_stageEntity.notFixedCells, _stateEntity.IsState, new Vector3(x, y, 0.0f));
+                    view.SetUp(_stageEntity.notFixedCells, _stageEntity.FindPanelByPosition, _stateEntity.IsState,
+                        new Vector3(x, y, 0.0f));
+
+                    _stageEntity.AddPanel(view);
                 }
             });
         }

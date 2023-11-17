@@ -10,13 +10,16 @@ namespace GameOff2023.InGame.Presentation.View
     {
         private CameraView _cameraView;
         private List<CellView> _cellViews;
+        private Func<(PanelView, Vector3), PanelView> _findPanel;
         private Func<GameState, bool> _isState;
         private Vector3 _startPosition;
 
-        public void SetUp(List<CellView> cellViews, Func<GameState, bool> isState, Vector3 position)
+        public void SetUp(List<CellView> cellViews, Func<(PanelView, Vector3), PanelView> findPanel,
+            Func<GameState, bool> isState, Vector3 position)
         {
             _cameraView = FindObjectOfType<CameraView>();
             _cellViews = cellViews;
+            _findPanel = findPanel;
             _isState = isState;
 
             SetPosition(position);
@@ -52,9 +55,17 @@ namespace GameOff2023.InGame.Presentation.View
             var cell = _cellViews.Find(cell => cell.IsEqualPosition(currentXToInt, currentYToInt));
             if (cell)
             {
+                // Panelを配置済みであれば入れ替え
+                var nextPosition = new Vector3(currentXToInt, currentYToInt);
+                var panel = _findPanel?.Invoke((this, nextPosition));
+                if (panel)
+                {
+                    panel.SetPosition(_startPosition);
+                }
+
                 // 配置可能であれば配置し、cellの色を戻す
                 cell.SetColor(CellConfig.DEFAULT_COLOR);
-                SetPosition(new Vector3(currentXToInt, currentYToInt));
+                SetPosition(nextPosition);
             }
             else
             {
