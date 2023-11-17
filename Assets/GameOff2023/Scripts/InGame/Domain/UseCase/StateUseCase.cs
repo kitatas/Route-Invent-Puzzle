@@ -1,6 +1,6 @@
 using System;
 using GameOff2023.Base.Domain.UseCase;
-using GameOff2023.Common.Data.Entity;
+using GameOff2023.InGame.Data.Entity;
 using UniRx;
 
 namespace GameOff2023.InGame.Domain.UseCase

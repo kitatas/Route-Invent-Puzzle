@@ -1,7 +1,6 @@
 using GameOff2023.Base.Data.Entity;
-using GameOff2023.InGame;
 
-namespace GameOff2023.Common.Data.Entity
+namespace GameOff2023.InGame.Data.Entity
 {
     public sealed class StateEntity : BaseEntity<GameState>
     {

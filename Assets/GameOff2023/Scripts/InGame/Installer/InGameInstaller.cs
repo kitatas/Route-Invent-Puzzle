@@ -1,5 +1,5 @@
-using GameOff2023.Common.Data.Entity;
 using GameOff2023.InGame.Data.DataStore;
+using GameOff2023.InGame.Data.Entity;
 using GameOff2023.InGame.Domain.Repository;
 using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.Controller;
