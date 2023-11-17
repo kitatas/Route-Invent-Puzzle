@@ -86,5 +86,16 @@ namespace GameOff2023.InGame.Domain.UseCase
                 }
             });
         }
+
+        public void ExecPanelEffect(Presentation.View.PlayerView player)
+        {
+            _stageEntity.ExecEachPanel(panel =>
+            {
+                if (panel is Presentation.View.CurvePanelView curvePanel)
+                {
+                    curvePanel.Curve(player);
+                }
+            });
+        }
     }
 }

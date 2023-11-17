@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UniEx;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Data.Entity
@@ -48,6 +50,11 @@ namespace GameOff2023.InGame.Data.Entity
         {
             return _panels
                 .Find(x => x != condition.panel && x.currentPosition == condition.position);
+        }
+
+        public void ExecEachPanel(Action<Presentation.View.PanelView> action)
+        {
+            _panels.Each(panel => action?.Invoke(panel));
         }
     }
 }
