@@ -10,12 +10,15 @@ namespace GameOff2023.InGame.Domain.UseCase
     public sealed class StageUseCase
     {
         private readonly Transform _stage;
+        private readonly StageEntity _stageEntity;
         private readonly StateEntity _stateEntity;
         private readonly StageRepository _stageRepository;
 
-        public StageUseCase(Transform stage, StateEntity stateEntity, StageRepository stageRepository)
+        public StageUseCase(Transform stage, StageEntity stageEntity, StateEntity stateEntity,
+            StageRepository stageRepository)
         {
             _stage = stage;
+            _stageEntity = stageEntity;
             _stateEntity = stateEntity;
             _stageRepository = stageRepository;
         }
@@ -28,12 +31,16 @@ namespace GameOff2023.InGame.Domain.UseCase
                 {
                     var cell = Object.Instantiate(_stageRepository.GetCell(), _stage);
                     cell.SetPosition(new Vector3(x, y, 0.0f));
+                    _stageEntity.AddField(cell);
                 }
             }
 
             var stageData = _stageRepository.FindStageData();
             stageData.cells.Each(cell =>
             {
+                // 座標が一致するcellは固定マス扱い
+                _stageEntity.FindFieldByPosition(cell.position)?.SetType(CellType.Fixed);
+
                 switch (cell.type)
                 {
                     case ObjectType.Player:
@@ -58,7 +65,7 @@ namespace GameOff2023.InGame.Domain.UseCase
                     var view = Object.Instantiate(data.view);
                     var x = count.IsEven() ? 13.5f : 12.0f;
                     var y = 8.0f - Mathf.CeilToInt(count / 2.0f);
-                    view.SetUp(_stateEntity.IsState, new Vector3(x, y, 0.0f));
+                    view.SetUp(_stageEntity.notFixedCells, _stateEntity.IsState, new Vector3(x, y, 0.0f));
                 }
             });
         }

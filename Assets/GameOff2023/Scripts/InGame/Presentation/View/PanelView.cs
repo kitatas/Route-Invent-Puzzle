@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UniEx;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,10 +13,10 @@ namespace GameOff2023.InGame.Presentation.View
         private Func<GameState, bool> _isState;
         private Vector3 _startPosition;
 
-        public void SetUp(Func<GameState, bool> isState, Vector3 position)
+        public void SetUp(List<CellView> cellViews, Func<GameState, bool> isState, Vector3 position)
         {
             _cameraView = FindObjectOfType<CameraView>();
-            _cellViews = FindObjectsOfType<CellView>().ToList();
+            _cellViews = cellViews;
             _isState = isState;
 
             SetPosition(position);

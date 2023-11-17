@@ -7,6 +7,13 @@ namespace GameOff2023.InGame.Presentation.View
     {
         [SerializeField] private SpriteRenderer spriteRenderer = default;
 
+        public CellType cellType { get; private set; } = CellType.Empty;
+
+        public void SetType(CellType type)
+        {
+            cellType = type;
+        }
+
         public bool IsEqualPosition(int x, int y)
         {
             return currentPosition.x.IsEqual(x) && currentPosition.y.IsEqual(y);

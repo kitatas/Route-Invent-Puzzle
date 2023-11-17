@@ -41,4 +41,11 @@ namespace GameOff2023.InGame
         CurveDownLeft = 3,
         CurveDownRight = 4,
     }
+
+    public enum CellType
+    {
+        None,
+        Empty,
+        Fixed,
+    }
 }
