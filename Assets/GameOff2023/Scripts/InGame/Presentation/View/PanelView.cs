@@ -29,25 +29,27 @@ namespace GameOff2023.InGame.Presentation.View
         public virtual void OnDrag(PointerEventData eventData)
         {
             var isEdit = _isState?.Invoke(GameState.Edit);
-            if (isEdit.HasValue && isEdit.Value)
-            {
-                var position = _cameraView.GetWorldPoint(eventData.position);
-                position.z = -1.0f;
-                SetPosition(position);
+            if (!isEdit.HasValue || !isEdit.Value) return;
 
-                // 最も近い座標のcellの色を変更する
-                _cellViews.Each(cell =>
-                {
-                    var color = cell.IsEqualPosition(currentXToInt, currentYToInt)
-                        ? CellConfig.PLACEABLE_COLOR
-                        : CellConfig.DEFAULT_COLOR;
-                    cell.SetColor(color);
-                });
-            }
+            var position = _cameraView.GetWorldPoint(eventData.position);
+            position.z = -1.0f;
+            SetPosition(position);
+
+            // 最も近い座標のcellの色を変更する
+            _cellViews.Each(cell =>
+            {
+                var color = cell.IsEqualPosition(currentXToInt, currentYToInt)
+                    ? CellConfig.PLACEABLE_COLOR
+                    : CellConfig.DEFAULT_COLOR;
+                cell.SetColor(color);
+            });
         }
 
         public virtual void OnPointerDown(PointerEventData eventData)
         {
+            var isEdit = _isState?.Invoke(GameState.Edit);
+            if (!isEdit.HasValue || !isEdit.Value) return;
+
             _startPosition = currentPosition;
 
             transform
@@ -58,6 +60,9 @@ namespace GameOff2023.InGame.Presentation.View
 
         public virtual void OnPointerUp(PointerEventData eventData)
         {
+            var isEdit = _isState?.Invoke(GameState.Edit);
+            if (!isEdit.HasValue || !isEdit.Value) return;
+
             var cell = _cellViews.Find(cell => cell.IsEqualPosition(currentXToInt, currentYToInt));
             if (cell)
             {
