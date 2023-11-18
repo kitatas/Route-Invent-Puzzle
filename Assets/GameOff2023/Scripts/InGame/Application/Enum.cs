@@ -26,6 +26,13 @@ namespace GameOff2023.InGame
         DownRight,
     }
 
+    public enum ScaleType
+    {
+        None,
+        Small,
+        Large,
+    }
+
     public enum ObjectType
     {
         None = 0,
@@ -40,6 +47,10 @@ namespace GameOff2023.InGame
         CurveUpRight = 2,
         CurveDownLeft = 3,
         CurveDownRight = 4,
+        TunnelUpUpDownDown = 5,
+        TunnelUpDownDownUp = 6,
+        TunnelUpLeftDownRight = 7,
+        TunnelUpRightDownLeft = 8,
     }
 
     public enum CellType

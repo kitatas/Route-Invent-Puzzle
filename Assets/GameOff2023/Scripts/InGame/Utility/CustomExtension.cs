@@ -17,6 +17,28 @@ namespace GameOff2023.InGame
             };
         }
 
+        public static bool IsEnter(this Direction direction1, Direction direction2)
+        {
+            return (direction1, direction2) switch
+            {
+                (Direction.Up, Direction.Down) => true,
+                (Direction.Down, Direction.Up) => true,
+                (Direction.Left, Direction.Right) => true,
+                (Direction.Right, Direction.Left) => true,
+                _ => false,
+            };
+        }
+
+        public static Vector3 ToScale(this ScaleType type)
+        {
+            return type switch
+            {
+                ScaleType.Small => Vector3.one * 0.5f,
+                ScaleType.Large => Vector3.one,
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
+        }
+
         public static Direction ToNextDirection(this CurveType type, Direction direction)
         {
             return (type, direction) switch
