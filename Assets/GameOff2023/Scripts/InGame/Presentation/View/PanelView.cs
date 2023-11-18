@@ -89,5 +89,7 @@ namespace GameOff2023.InGame.Presentation.View
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }
+
+        public abstract void ExecAction(PlayerView player);
     }
 }

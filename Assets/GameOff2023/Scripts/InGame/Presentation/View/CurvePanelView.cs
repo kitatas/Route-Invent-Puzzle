@@ -9,7 +9,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         private bool _isCurving = false;
 
-        public void Curve(PlayerView player)
+        public override void ExecAction(PlayerView player)
         {
             if (_isCurving)
             {
