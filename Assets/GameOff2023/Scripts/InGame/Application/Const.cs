@@ -21,6 +21,12 @@ namespace GameOff2023.InGame
         public static readonly Color PLACEABLE_COLOR = Color.yellow;
     }
 
+    public sealed class PanelConfig
+    {
+        public const float ADJUST_TIME = 0.1f;
+        public const float SCALE_UP_RATE = 1.2f;
+    }
+
     public sealed class PlayerConfig
     {
         public const float ADJUST_TIME = 0.1f;

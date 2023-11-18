@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MagicTween;
 using UniEx;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -48,6 +49,11 @@ namespace GameOff2023.InGame.Presentation.View
         public virtual void OnPointerDown(PointerEventData eventData)
         {
             _startPosition = currentPosition;
+
+            transform
+                .TweenLocalScale(Vector3.one * PanelConfig.SCALE_UP_RATE, PanelConfig.ADJUST_TIME)
+                .SetEase(Ease.Linear)
+                .SetLink(gameObject);
         }
 
         public virtual void OnPointerUp(PointerEventData eventData)
@@ -60,7 +66,7 @@ namespace GameOff2023.InGame.Presentation.View
                 var panel = _findPanel?.Invoke((this, nextPosition));
                 if (panel)
                 {
-                    panel.SetPosition(_startPosition);
+                    panel.SetPosition(_startPosition, PanelConfig.ADJUST_TIME);
                 }
 
                 // 配置可能であれば配置し、cellの色を戻す
@@ -70,8 +76,13 @@ namespace GameOff2023.InGame.Presentation.View
             else
             {
                 // 配置不可であれば取得位置に戻す
-                SetPosition(_startPosition);
+                SetPosition(_startPosition, PanelConfig.ADJUST_TIME);
             }
+
+            transform
+                .TweenLocalScale(Vector3.one, PanelConfig.ADJUST_TIME)
+                .SetEase(Ease.Linear)
+                .SetLink(gameObject);
         }
     }
 }
