@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf2fca8d0514232b0a1ddc9fa8b6843, type: 3}
-  m_Name: PanelData - DownRight
+  m_Name: PanelData - TunnelUpUpDownDown
   m_EditorClassIdentifier: 
-  panelType: 4
-  panelView: {fileID: 8411947565010869760, guid: 7b63cc1b2f711403398ba234ddc45eea, type: 3}
+  panelType: 5
+  panelView: {fileID: 3994523013834607560, guid: aacadddacebb04ad5aeaff09a7065aaf, type: 3}

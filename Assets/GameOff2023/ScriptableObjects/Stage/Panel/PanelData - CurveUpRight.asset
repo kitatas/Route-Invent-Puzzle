@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf2fca8d0514232b0a1ddc9fa8b6843, type: 3}
-  m_Name: PanelData - DownLeft
+  m_Name: PanelData - CurveUpRight
   m_EditorClassIdentifier: 
-  panelType: 3
-  panelView: {fileID: 3590175729265303752, guid: d824cff5f94154646b92b0ff54acd5cf, type: 3}
+  panelType: 2
+  panelView: {fileID: 4593541309515981056, guid: 1d759a4256b084737a419e4c7e1339a3, type: 3}
