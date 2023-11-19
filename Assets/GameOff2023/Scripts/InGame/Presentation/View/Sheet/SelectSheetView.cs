@@ -13,7 +13,13 @@ namespace GameOff2023.InGame.Presentation.View
         public void Init(Action<SeType> playSe, Data.Entity.LevelEntity level, Action<Data.Entity.LevelEntity> select)
         {
             var selectButton = Instantiate(selectButtonView, selectButtonParent);
-            selectButton.SetUp(playSe, level, select);
+            selectButton.SetUp(playSe, level);
+
+            selectButton.AddPushEvent(() =>
+            {
+                select?.Invoke(level);
+                StartCoroutine(ShowSheetCor(SheetConfig.GAME_PATH));
+            });
         }
     }
 }
