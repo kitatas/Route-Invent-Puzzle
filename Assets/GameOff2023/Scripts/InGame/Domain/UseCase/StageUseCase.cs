@@ -9,15 +9,12 @@ namespace GameOff2023.InGame.Domain.UseCase
 {
     public sealed class StageUseCase
     {
-        private readonly Transform _stage;
         private readonly StageEntity _stageEntity;
         private readonly StateEntity _stateEntity;
         private readonly StageRepository _stageRepository;
 
-        public StageUseCase(Transform stage, StageEntity stageEntity, StateEntity stateEntity,
-            StageRepository stageRepository)
+        public StageUseCase(StageEntity stageEntity, StateEntity stateEntity, StageRepository stageRepository)
         {
-            _stage = stage;
             _stageEntity = stageEntity;
             _stateEntity = stateEntity;
             _stageRepository = stageRepository;
@@ -29,7 +26,7 @@ namespace GameOff2023.InGame.Domain.UseCase
             {
                 for (int y = 1; y <= StageConfig.Y; y++)
                 {
-                    var cell = Object.Instantiate(_stageRepository.GetCell(), _stage);
+                    var cell = Object.Instantiate(_stageRepository.GetCell());
                     cell.SetPosition(new Vector3(x, y, 0.0f));
                     _stageEntity.AddField(cell);
                 }
@@ -41,7 +38,7 @@ namespace GameOff2023.InGame.Domain.UseCase
                 for (int j = 0; j < 5; j++)
                 {
                     var y = 7.0f - j;
-                    var cell = Object.Instantiate(_stageRepository.GetCell(), _stage);
+                    var cell = Object.Instantiate(_stageRepository.GetCell());
                     cell.SetPosition(new Vector3(x, y, 0.0f));
                     _stageEntity.AddStock(cell);
 
