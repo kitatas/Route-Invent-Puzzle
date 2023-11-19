@@ -8,6 +8,7 @@ namespace GameOff2023.Common
         // sheet prefab path
         private const string BASE_PATH = "Sheet";
         public const string TOP_PATH = BASE_PATH + "/Top";
+        public const string SELECT_PATH = BASE_PATH + "/Select";
     }
 
     public sealed class ModalConfig
