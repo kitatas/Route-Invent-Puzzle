@@ -1,5 +1,15 @@
 namespace GameOff2023.Common
 {
+    public sealed class SheetConfig
+    {
+        // container name
+        public const string INGAME_CONTAINER = "InGameSheetContainer";
+
+        // sheet prefab path
+        private const string BASE_PATH = "Sheet";
+        public const string TOP_PATH = BASE_PATH + "/Top";
+    }
+
     public sealed class ModalConfig
     {
         // container name

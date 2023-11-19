@@ -46,6 +46,7 @@ namespace GameOff2023.InGame.Installer
             {
                 entryPoints.Add<ModalPresenter>();
                 entryPoints.Add<StatePresenter>();
+                entryPoints.Add<SheetPresenter>();
             });
 
             // View
