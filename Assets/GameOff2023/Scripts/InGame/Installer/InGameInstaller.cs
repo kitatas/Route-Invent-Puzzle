@@ -25,6 +25,7 @@ namespace GameOff2023.InGame.Installer
             builder.RegisterInstance<PanelTable>(panelTable);
 
             // Entity
+            builder.Register<LevelEntity>(Lifetime.Scoped);
             builder.Register<StageEntity>(Lifetime.Scoped);
             builder.Register<StateEntity>(Lifetime.Scoped);
 
