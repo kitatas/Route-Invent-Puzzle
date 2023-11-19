@@ -9,12 +9,15 @@ namespace GameOff2023.InGame.Domain.UseCase
 {
     public sealed class StageUseCase
     {
+        private readonly LevelEntity _levelEntity;
         private readonly StageEntity _stageEntity;
         private readonly StateEntity _stateEntity;
         private readonly StageRepository _stageRepository;
 
-        public StageUseCase(StageEntity stageEntity, StateEntity stateEntity, StageRepository stageRepository)
+        public StageUseCase(LevelEntity levelEntity, StageEntity stageEntity, StateEntity stateEntity,
+            StageRepository stageRepository)
         {
+            _levelEntity = levelEntity;
             _stageEntity = stageEntity;
             _stateEntity = stateEntity;
             _stageRepository = stageRepository;
@@ -46,7 +49,7 @@ namespace GameOff2023.InGame.Domain.UseCase
                 }
             }
 
-            var stageData = _stageRepository.FindStageData(new LevelEntity { value = 1 });
+            var stageData = _stageRepository.FindStageData(_levelEntity);
             stageData.cells.Each(cell =>
             {
                 // 座標が一致するcellは固定マス扱い

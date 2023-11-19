@@ -21,10 +21,10 @@ namespace GameOff2023.InGame.Installer
             builder.RegisterInstance<PanelTable>(panelTable);
 
             // Entity
-            builder.Register<LevelEntity>(Lifetime.Scoped);
+            builder.Register<LevelEntity>(Lifetime.Singleton);
 
             // Repository
-            builder.Register<StageRepository>(Lifetime.Scoped);
+            builder.Register<StageRepository>(Lifetime.Singleton);
 
             // Presenter
             builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>
