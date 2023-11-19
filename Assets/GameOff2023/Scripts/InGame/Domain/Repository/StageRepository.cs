@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GameOff2023.InGame.Data.DataStore;
 
 namespace GameOff2023.InGame.Domain.Repository
@@ -7,11 +8,57 @@ namespace GameOff2023.InGame.Domain.Repository
     {
         private readonly CellData _cellData;
         private readonly PanelTable _panelTable;
+        private readonly List<StageData> _stageData;
 
         public StageRepository(CellData cellData, PanelTable panelTable)
         {
             _cellData = cellData;
             _panelTable = panelTable;
+
+            // TODO: ベタ書き修正
+            _stageData = new List<StageData>
+            {
+                new StageData
+                {
+                    level = new Data.Entity.LevelEntity { value = 1 },
+                    cells = new[]
+                    {
+                        new Data.Entity.CellEntity { type = (ObjectType)1, x = 2, y = 2 },
+                        new Data.Entity.CellEntity { type = (ObjectType)2, x = 5, y = 7 },
+                    },
+                    panels = new[]
+                    {
+                        new Data.Entity.PanelEntity { type = (PanelType)1, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)2, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)3, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)4, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)5, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)6, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)7, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)8, num = 1 },
+                    },
+                },
+                new StageData
+                {
+                    level = new Data.Entity.LevelEntity { value = 2 },
+                    cells = new[]
+                    {
+                        new Data.Entity.CellEntity { type = (ObjectType)1, x = 5, y = 7 },
+                        new Data.Entity.CellEntity { type = (ObjectType)2, x = 2, y = 2 },
+                    },
+                    panels = new[]
+                    {
+                        new Data.Entity.PanelEntity { type = (PanelType)1, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)2, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)3, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)4, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)5, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)6, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)7, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)8, num = 1 },
+                    },
+                },
+            };
         }
 
         public Presentation.View.CellView GetCell()
@@ -30,24 +77,9 @@ namespace GameOff2023.InGame.Domain.Repository
             return data;
         }
 
-        public StageData FindStageData()
+        public StageData FindStageData(Data.Entity.LevelEntity levelEntity)
         {
-            // TODO: ベタ書き修正
-            return new StageData
-            {
-                cells = new[]
-                {
-                    new Data.Entity.CellEntity { type = (ObjectType)1, x = 2, y = 2 },
-                    new Data.Entity.CellEntity { type = (ObjectType)2, x = 5, y = 7 },
-                },
-                panels = new[]
-                {
-                    new Data.Entity.PanelEntity { type = (PanelType)1, num = 2 },
-                    new Data.Entity.PanelEntity { type = (PanelType)2, num = 2 },
-                    new Data.Entity.PanelEntity { type = (PanelType)3, num = 1 },
-                    new Data.Entity.PanelEntity { type = (PanelType)4, num = 1 },
-                },
-            };
+            return stageData.Find(x => x.level.IsEqual(levelEntity));
         }
     }
 }

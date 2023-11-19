@@ -49,7 +49,7 @@ namespace GameOff2023.InGame.Domain.UseCase
                 }
             }
 
-            var stageData = _stageRepository.FindStageData();
+            var stageData = _stageRepository.FindStageData(new LevelEntity { value = 1 });
             stageData.cells.Each(cell =>
             {
                 // 座標が一致するcellは固定マス扱い
