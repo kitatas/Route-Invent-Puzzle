@@ -1,3 +1,4 @@
+using System;
 using GameOff2023.Base.Presentation.View;
 using UnityEngine;
 using UnityScreenNavigator.Runtime.Core.Modal;
@@ -8,8 +9,10 @@ namespace GameOff2023.Common.Presentation.View
     {
         [SerializeField] private ModalType modalType = default;
 
-        public void SetUp(ModalContainer modalContainer)
+        public void SetUp(Action<SeType> playSe, ModalContainer modalContainer)
         {
+            Init(playSe);
+
             AddPushEvent(() =>
             {
                 // モーダル表示
