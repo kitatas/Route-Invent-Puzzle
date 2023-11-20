@@ -21,6 +21,7 @@ namespace GameOff2023.Common
         private const string BASE_PATH = "Modal";
         public const string OPTION_PATH = BASE_PATH + "/Option";
         public const string INFORMATION_PATH = BASE_PATH + "/Information";
+        public const string CLEAR_PATH = BASE_PATH + "/Clear";
     }
 
     public sealed class UiConfig

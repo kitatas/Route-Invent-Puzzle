@@ -8,7 +8,7 @@ namespace GameOff2023.Base.Presentation.View
 {
     public abstract class BaseModalView : Modal
     {
-        [SerializeField] private BaseButtonView closeButtonView = default;
+        [SerializeField] protected BaseButtonView closeButtonView = default;
 
         public override IEnumerator Initialize()
         {
