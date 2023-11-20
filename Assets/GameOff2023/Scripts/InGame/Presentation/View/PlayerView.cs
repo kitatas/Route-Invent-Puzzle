@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using MagicTween;
@@ -10,11 +9,14 @@ namespace GameOff2023.InGame.Presentation.View
     public sealed class PlayerView : StageObjectView
     {
         [SerializeField] private float moveSpeed = default;
+        [SerializeField] private SpriteRenderer spriteRenderer = default;
 
         [HideInInspector] public Direction direction = default;
         public ScaleType scaleType => _scaleType.Value;
+        public bool isDead => _isDead.Value;
 
         private ReactiveProperty<ScaleType> _scaleType;
+        private ReactiveProperty<bool> _isDead;
 
         private void Awake()
         {
@@ -26,6 +28,16 @@ namespace GameOff2023.InGame.Presentation.View
                         .TweenLocalScale(x.ToScale(), PlayerConfig.ADJUST_TIME)
                         .SetEase(Ease.Linear)
                         .SetLink(gameObject);
+                })
+                .AddTo(this);
+
+            _isDead = new ReactiveProperty<bool>(false);
+            _isDead
+                .Where(x => x)
+                .Subscribe(_ =>
+                {
+                    // TODO: 失敗演出
+                    spriteRenderer.enabled = false;
                 })
                 .AddTo(this);
         }
@@ -53,6 +65,11 @@ namespace GameOff2023.InGame.Presentation.View
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject)
                 .WithCancellation(token);
+        }
+
+        public void SetDead()
+        {
+            _isDead.Value = true;
         }
     }
 }

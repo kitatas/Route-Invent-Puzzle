@@ -17,15 +17,6 @@ namespace GameOff2023.InGame
         Right,
     }
 
-    public enum CurveType
-    {
-        None,
-        UpLeft,
-        UpRight,
-        DownLeft,
-        DownRight,
-    }
-
     public enum ScaleType
     {
         None,

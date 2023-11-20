@@ -38,21 +38,5 @@ namespace GameOff2023.InGame
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
         }
-
-        public static Direction ToNextDirection(this CurveType type, Direction direction)
-        {
-            return (type, direction) switch
-            {
-                (CurveType.UpLeft, Direction.Down) => Direction.Left,
-                (CurveType.UpLeft, Direction.Right) => Direction.Up,
-                (CurveType.UpRight, Direction.Down) => Direction.Right,
-                (CurveType.UpRight, Direction.Left) => Direction.Up,
-                (CurveType.DownLeft, Direction.Up) => Direction.Left,
-                (CurveType.DownLeft, Direction.Right) => Direction.Down,
-                (CurveType.DownRight, Direction.Up) => Direction.Right,
-                (CurveType.DownRight, Direction.Left) => Direction.Down,
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
-        }
     }
 }

@@ -32,9 +32,17 @@ namespace GameOff2023.InGame.Presentation.Controller
         {
             while (true)
             {
+                if (_playerView.isDead)
+                {
+                    // TODO: failed
+                    return GameState.None;
+                }
+
                 if (_goalView.IsGoal(_playerView))
                 {
-                    break;
+                    // TODO: clear
+                    await _playerView.TweenPositionAsync(_goalView.currentPosition, token);
+                    return GameState.None;
                 }
 
                 var deltaTime = Time.deltaTime;
@@ -44,10 +52,6 @@ namespace GameOff2023.InGame.Presentation.Controller
 
                 await UniTask.Yield(token);
             }
-
-            await _playerView.TweenPositionAsync(_goalView.currentPosition, token);
-
-            return GameState.None;
         }
     }
 }
