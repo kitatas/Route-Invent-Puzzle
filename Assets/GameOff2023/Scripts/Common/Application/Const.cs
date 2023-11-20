@@ -24,6 +24,18 @@ namespace GameOff2023.Common
         public const string CLEAR_PATH = BASE_PATH + "/Clear";
     }
 
+    public sealed class PageConfig
+    {
+        // container name
+        public const string INGAME_CONTAINER = "InGamePageContainer";
+
+        // page prefab path
+        private const string BASE_PATH = "Page";
+        public const string TOP_PATH = BASE_PATH + "/Top";
+        public const string SELECT_PATH = BASE_PATH + "/Select";
+        public const string GAME_PATH = BASE_PATH + "/Game";
+    }
+
     public sealed class UiConfig
     {
         public const float PUSH_TIME = 0.1f;
