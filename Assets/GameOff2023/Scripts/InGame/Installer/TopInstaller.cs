@@ -8,7 +8,7 @@ namespace GameOff2023.InGame.Installer
 {
     public sealed class TopInstaller : LifetimeScope
     {
-        [SerializeField] private TopSheetView topSheetView = default;
+        [SerializeField] private TopPageView topPageView = default;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -19,7 +19,7 @@ namespace GameOff2023.InGame.Installer
             });
 
             // View
-            builder.RegisterInstance<TopSheetView>(topSheetView);
+            builder.RegisterInstance<TopPageView>(topPageView);
         }
     }
 }
