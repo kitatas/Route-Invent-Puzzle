@@ -6,6 +6,7 @@ namespace GameOff2023.InGame
         SetUp,
         Edit,
         Move,
+        Clear,
     }
 
     public enum Direction

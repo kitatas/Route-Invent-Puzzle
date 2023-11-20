@@ -40,9 +40,8 @@ namespace GameOff2023.InGame.Presentation.Controller
 
                 if (_goalView.IsGoal(_playerView))
                 {
-                    // TODO: clear
                     await _playerView.TweenPositionAsync(_goalView.currentPosition, token);
-                    return GameState.None;
+                    return GameState.Clear;
                 }
 
                 var deltaTime = Time.deltaTime;

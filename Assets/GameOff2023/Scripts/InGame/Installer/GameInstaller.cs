@@ -26,6 +26,7 @@ namespace GameOff2023.InGame.Installer
 
             // Controller
             builder.Register<StateController>(Lifetime.Scoped);
+            builder.Register<BaseState, ClearState>(Lifetime.Scoped);
             builder.Register<BaseState, EditState>(Lifetime.Scoped);
             builder.Register<BaseState, MoveState>(Lifetime.Scoped);
             builder.Register<BaseState, SetUpState>(Lifetime.Scoped);
