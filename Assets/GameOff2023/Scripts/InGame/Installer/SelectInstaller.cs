@@ -9,7 +9,7 @@ namespace GameOff2023.InGame.Installer
 {
     public sealed class SelectInstaller : LifetimeScope
     {
-        [SerializeField] private SelectSheetView selectSheetView = default;
+        [SerializeField] private SelectPageView selectPageView = default;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -23,7 +23,7 @@ namespace GameOff2023.InGame.Installer
             });
 
             // View
-            builder.RegisterInstance<SelectSheetView>(selectSheetView);
+            builder.RegisterInstance<SelectPageView>(selectPageView);
         }
     }
 }
