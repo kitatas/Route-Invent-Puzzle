@@ -12,7 +12,7 @@ namespace GameOff2023.InGame.Installer
     public sealed class GameInstaller : LifetimeScope
     {
         [SerializeField] private EditCompButtonView editCompButtonView = default;
-        [SerializeField] private GameSheetView gameSheetView = default;
+        [SerializeField] private GamePageView gamePageView = default;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -40,7 +40,7 @@ namespace GameOff2023.InGame.Installer
 
             // View
             builder.RegisterInstance<EditCompButtonView>(editCompButtonView);
-            builder.RegisterInstance<GameSheetView>(gameSheetView);
+            builder.RegisterInstance<GamePageView>(gamePageView);
         }
     }
 }
