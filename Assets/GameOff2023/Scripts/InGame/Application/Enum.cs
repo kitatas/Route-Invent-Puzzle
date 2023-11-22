@@ -8,6 +8,7 @@ namespace GameOff2023.InGame
         Move,
         Clear,
         Fail,
+        Back,
     }
 
     public enum FailNextType

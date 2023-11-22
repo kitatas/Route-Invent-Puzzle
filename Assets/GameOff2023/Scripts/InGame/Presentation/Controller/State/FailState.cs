@@ -43,15 +43,11 @@ namespace GameOff2023.InGame.Presentation.Controller
                         // TODO: やり直し
                         break;
                     case FailNextType.Retire:
-                        // TODO: Stage削除
-                        // TODO: Selectに戻る
-                        return GameState.None;
-                    default:
-                        throw new Exception();
+                        return GameState.Back;
                 }
             }
 
-            return GameState.None;
+            throw new Exception();
         }
     }
 }
