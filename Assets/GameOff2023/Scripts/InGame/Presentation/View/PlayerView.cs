@@ -48,6 +48,7 @@ namespace GameOff2023.InGame.Presentation.View
             direction = Direction.Up;
             SetScaleType(ScaleType.Large);
             spriteRenderer.SetColorA(0.0f);
+            _isDead.Value = false;
             _hidePosition = currentPosition;
         }
 
