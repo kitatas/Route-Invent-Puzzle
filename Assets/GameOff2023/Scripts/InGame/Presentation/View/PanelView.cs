@@ -13,6 +13,7 @@ namespace GameOff2023.InGame.Presentation.View
         private List<CellView> _cellViews;
         private Func<(PanelView, Vector3), PanelView> _findPanel;
         private Func<GameState, bool> _isState;
+        private Vector3 _initPosition;
         private Vector3 _startPosition;
 
         public void SetUp(List<CellView> cellViews, Func<(PanelView, Vector3), PanelView> findPanel,
@@ -22,8 +23,14 @@ namespace GameOff2023.InGame.Presentation.View
             _cellViews = cellViews;
             _findPanel = findPanel;
             _isState = isState;
+            _initPosition = position;
 
-            SetPosition(position);
+            SetPosition(_initPosition);
+        }
+
+        public void ResetPosition()
+        {
+            SetPosition(_initPosition);
         }
 
         public virtual void OnDrag(PointerEventData eventData)

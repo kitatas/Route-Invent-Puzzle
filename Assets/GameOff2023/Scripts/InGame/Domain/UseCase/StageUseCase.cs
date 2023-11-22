@@ -97,6 +97,11 @@ namespace GameOff2023.InGame.Domain.UseCase
             _stageEntity.ExecEachPanel(panel => panel.ExecAction(player));
         }
 
+        public void ResetPanel()
+        {
+            _stageEntity.ExecEachPanel(panel => panel.ResetPosition());
+        }
+
         public void Hide(float duration)
         {
             _stageEntity.ClearAll(duration);
