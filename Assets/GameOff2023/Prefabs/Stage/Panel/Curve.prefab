@@ -132,7 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d26c9f2d2494ebaaad7bb8b31e24c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveType: 0
+  spriteRenderer: {fileID: 324347938583843583}
+  direction1: 0
+  direction2: 0
 --- !u!61 &3734010288512573393
 BoxCollider2D:
   m_ObjectHideFlags: 0

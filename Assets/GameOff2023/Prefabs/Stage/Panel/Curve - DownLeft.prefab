@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: curveType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5468895890547922506, guid: 5537a855e53ad4411b8ee1f20d656016, type: 3}
+      propertyPath: direction1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468895890547922506, guid: 5537a855e53ad4411b8ee1f20d656016, type: 3}
+      propertyPath: direction2
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7320681312529035088, guid: 5537a855e53ad4411b8ee1f20d656016, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
