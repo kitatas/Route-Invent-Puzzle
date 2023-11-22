@@ -15,6 +15,11 @@ namespace GameOff2023.InGame
         public const float JUDGE_DISTANCE = 0.01f;
     }
 
+    public sealed class StageObjectConfig
+    {
+        public const float HIDE_TIME = 0.25f;
+    }
+
     public sealed class CellConfig
     {
         public static readonly Color DEFAULT_COLOR = Color.cyan;

@@ -2,7 +2,9 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameOff2023.Common;
 using GameOff2023.Common.Domain.UseCase;
+using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.View;
+using MagicTween;
 using UnityScreenNavigator.Runtime.Core.Modal;
 
 namespace GameOff2023.InGame.Presentation.Controller
@@ -10,10 +12,17 @@ namespace GameOff2023.InGame.Presentation.Controller
     public sealed class ClearState : BaseState
     {
         private readonly SoundUseCase _soundUseCase;
+        private readonly StageUseCase _stageUseCase;
+        private readonly GoalView _goalView;
+        private readonly PlayerView _playerView;
 
-        public ClearState(SoundUseCase soundUseCase)
+        public ClearState(SoundUseCase soundUseCase, StageUseCase stageUseCase, GoalView goalView,
+            PlayerView playerView)
         {
             _soundUseCase = soundUseCase;
+            _stageUseCase = stageUseCase;
+            _goalView = goalView;
+            _playerView = playerView;
         }
 
         public override GameState state => GameState.Clear;
@@ -36,6 +45,12 @@ namespace GameOff2023.InGame.Presentation.Controller
                 clearModalView.SetUp(x => _soundUseCase.PlaySe(x));
                 await clearModalView.PushCloseAsync(token);
             }
+
+            _stageUseCase.Hide(StageObjectConfig.HIDE_TIME);
+            await (
+                _playerView.Hide(StageObjectConfig.HIDE_TIME).WithCancellation(token),
+                _goalView.Hide(StageObjectConfig.HIDE_TIME).WithCancellation(token)
+            );
 
             return GameState.None;
         }

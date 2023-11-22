@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MagicTween;
 using UniEx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace GameOff2023.InGame.Data.Entity
 {
@@ -55,6 +57,27 @@ namespace GameOff2023.InGame.Data.Entity
         public void ExecEachPanel(Action<Presentation.View.PanelView> action)
         {
             _panels.Each(panel => action?.Invoke(panel));
+        }
+
+        public void ClearAll(float duration)
+        {
+            foreach (var field in _fields)
+            {
+                field.Hide(duration)
+                    .OnComplete(() => Object.Destroy(field.gameObject));
+            }
+
+            foreach (var stock in _stocks)
+            {
+                stock.Hide(duration)
+                    .OnComplete(() => Object.Destroy(stock.gameObject));
+            }
+
+            foreach (var panel in _panels)
+            {
+                panel.Hide(duration)
+                    .OnComplete(() => Object.Destroy(panel.gameObject));
+            }
         }
     }
 }

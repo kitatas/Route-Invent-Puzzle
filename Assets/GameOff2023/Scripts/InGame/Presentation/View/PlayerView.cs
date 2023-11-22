@@ -9,7 +9,6 @@ namespace GameOff2023.InGame.Presentation.View
     public sealed class PlayerView : StageObjectView
     {
         [SerializeField] private float moveSpeed = default;
-        [SerializeField] private SpriteRenderer spriteRenderer = default;
 
         [HideInInspector] public Direction direction = default;
         public ScaleType scaleType => _scaleType.Value;
@@ -17,6 +16,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         private ReactiveProperty<ScaleType> _scaleType;
         private ReactiveProperty<bool> _isDead;
+        private Vector3 _hidePosition;
 
         private void Awake()
         {
@@ -40,6 +40,8 @@ namespace GameOff2023.InGame.Presentation.View
                     spriteRenderer.enabled = false;
                 })
                 .AddTo(this);
+
+            _hidePosition = currentPosition;
         }
 
         public void SetUp()
@@ -70,6 +72,12 @@ namespace GameOff2023.InGame.Presentation.View
         public void SetDead()
         {
             _isDead.Value = true;
+        }
+
+        public override Tween Hide(float duration)
+        {
+            return base.Hide(duration)
+                .OnComplete(() => SetPosition(_hidePosition));
         }
     }
 }
