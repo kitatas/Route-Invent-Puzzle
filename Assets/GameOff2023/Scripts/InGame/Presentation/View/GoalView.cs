@@ -8,7 +8,7 @@ namespace GameOff2023.InGame.Presentation.View
     {
         private Vector3 _hidePosition;
 
-        public void SetUp()
+        public void Init()
         {
             _hidePosition = currentPosition;
             spriteRenderer.SetColorA(0.0f);

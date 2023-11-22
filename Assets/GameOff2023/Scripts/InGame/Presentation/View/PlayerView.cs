@@ -43,7 +43,7 @@ namespace GameOff2023.InGame.Presentation.View
                 .AddTo(this);
         }
 
-        public void SetUp()
+        public void Init()
         {
             direction = Direction.Up;
             SetScaleType(ScaleType.Large);
