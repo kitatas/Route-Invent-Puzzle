@@ -1,6 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using MagicTween;
+using UniEx;
 using UniRx;
 using UnityEngine;
 
@@ -40,14 +41,14 @@ namespace GameOff2023.InGame.Presentation.View
                     spriteRenderer.enabled = false;
                 })
                 .AddTo(this);
-
-            _hidePosition = currentPosition;
         }
 
         public void SetUp()
         {
             direction = Direction.Up;
             SetScaleType(ScaleType.Large);
+            spriteRenderer.SetColorA(0.0f);
+            _hidePosition = currentPosition;
         }
 
         public void Tick(float deltaTime)

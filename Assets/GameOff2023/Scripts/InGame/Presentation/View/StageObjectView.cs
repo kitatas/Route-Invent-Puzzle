@@ -28,6 +28,14 @@ namespace GameOff2023.InGame.Presentation.View
             }
         }
 
+        public virtual Tween Show(float duration)
+        {
+            return spriteRenderer
+                .TweenColorAlpha(1.0f, duration)
+                .SetEase(Ease.Linear)
+                .SetLink(gameObject);
+        }
+
         public virtual Tween Hide(float duration)
         {
             return spriteRenderer

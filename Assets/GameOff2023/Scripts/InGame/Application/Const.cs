@@ -17,6 +17,7 @@ namespace GameOff2023.InGame
 
     public sealed class StageObjectConfig
     {
+        public const float SHOW_TIME = 0.25f;
         public const float HIDE_TIME = 0.25f;
     }
 

@@ -8,9 +8,10 @@ namespace GameOff2023.InGame.Presentation.View
     {
         private Vector3 _hidePosition;
 
-        private void Awake()
+        public void SetUp()
         {
             _hidePosition = currentPosition;
+            spriteRenderer.SetColorA(0.0f);
         }
 
         public bool IsGoal(PlayerView player)

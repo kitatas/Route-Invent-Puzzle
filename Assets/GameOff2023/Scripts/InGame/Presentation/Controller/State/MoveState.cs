@@ -23,6 +23,7 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask InitAsync(CancellationToken token)
         {
+            _goalView.SetUp();
             _playerView.SetUp();
 
             await UniTask.Yield(token);

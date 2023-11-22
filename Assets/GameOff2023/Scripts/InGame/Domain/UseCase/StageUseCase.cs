@@ -55,18 +55,22 @@ namespace GameOff2023.InGame.Domain.UseCase
                 // 座標が一致するcellは固定マス扱い
                 _stageEntity.FindFieldByPosition(cell.position)?.SetType(CellType.Fixed);
 
+                Presentation.View.StageObjectView stageObjectView;
                 switch (cell.type)
                 {
                     case ObjectType.Player:
-                        Object.FindObjectOfType<Presentation.View.PlayerView>().SetPosition(cell.position);
+                        stageObjectView = Object.FindObjectOfType<Presentation.View.PlayerView>();
                         break;
                     case ObjectType.Goal:
-                        Object.FindObjectOfType<Presentation.View.GoalView>().SetPosition(cell.position);
+                        stageObjectView = Object.FindObjectOfType<Presentation.View.GoalView>();
                         break;
                     // TODO: 他objectはtableからprefab生成する
                     default:
                         throw new Exception();
                 }
+
+                stageObjectView.SetPosition(cell.position);
+                stageObjectView.Show(StageObjectConfig.SHOW_TIME);
             });
 
             var count = 0;
