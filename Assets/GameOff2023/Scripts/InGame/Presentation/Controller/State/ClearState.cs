@@ -4,8 +4,8 @@ using GameOff2023.Common;
 using GameOff2023.Common.Domain.UseCase;
 using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.View;
-using MagicTween;
 using UnityScreenNavigator.Runtime.Core.Modal;
+using UnityScreenNavigator.Runtime.Core.Page;
 
 namespace GameOff2023.InGame.Presentation.Controller
 {
@@ -47,10 +47,11 @@ namespace GameOff2023.InGame.Presentation.Controller
             }
 
             _stageUseCase.Hide(StageObjectConfig.HIDE_TIME);
-            await (
-                _playerView.Hide(StageObjectConfig.HIDE_TIME).WithCancellation(token),
-                _goalView.Hide(StageObjectConfig.HIDE_TIME).WithCancellation(token)
-            );
+            _goalView.Hide(StageObjectConfig.HIDE_TIME);
+            _playerView.Hide(StageObjectConfig.HIDE_TIME);
+
+            var pageContainer = PageContainer.Find(PageConfig.INGAME_CONTAINER);
+            pageContainer.Push(PageConfig.SELECT_PATH, true, stack: false);
 
             return GameState.None;
         }
