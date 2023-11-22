@@ -59,6 +59,7 @@ namespace GameOff2023.InGame.Domain.UseCase
                 switch (cell.type)
                 {
                     case ObjectType.Player:
+                        playerView.SetStartPosition(cell.position);
                         stageObjectView = playerView;
                         break;
                     case ObjectType.Goal:

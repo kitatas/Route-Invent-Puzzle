@@ -28,6 +28,8 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
+            _playerView.SetUp();
+
             await UniTask.Yield(token);
             return GameState.Edit;
         }

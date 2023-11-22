@@ -20,6 +20,7 @@ namespace GameOff2023.InGame.Presentation.View
         private ReactiveProperty<ScaleType> _scaleType;
         private ReactiveProperty<bool> _isDead;
         private Vector3 _hidePosition;
+        private Vector3 _startPosition;
         private bool _isEdit;
         private int _directionIndex;
 
@@ -68,9 +69,23 @@ namespace GameOff2023.InGame.Presentation.View
             _directionIndex = 0;
         }
 
+        public void SetUp()
+        {
+            SetDirection(PlayerConfig.DIRECTIONS[_directionIndex]);
+            SetScaleType(ScaleType.Large);
+            this.Delay(PlayerConfig.ADJUST_TIME, () => spriteRenderer.SetColorA(1.0f));
+            _isDead.Value = false;
+            SetPosition(_startPosition);
+        }
+
         public void Tick(float deltaTime)
         {
             transform.Translate(deltaTime * moveSpeed * direction.ToVector2());
+        }
+
+        public void SetStartPosition(Vector3 position)
+        {
+            _startPosition = position;
         }
 
         public void SetIsEdit(bool value)
