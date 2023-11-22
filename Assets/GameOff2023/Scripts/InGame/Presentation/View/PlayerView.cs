@@ -37,8 +37,8 @@ namespace GameOff2023.InGame.Presentation.View
                 .Where(x => x)
                 .Subscribe(_ =>
                 {
-                    // TODO: 失敗演出
-                    spriteRenderer.enabled = false;
+                    // TODO: 演出追加
+                    Hide(StageObjectConfig.HIDE_TIME);
                 })
                 .AddTo(this);
         }
