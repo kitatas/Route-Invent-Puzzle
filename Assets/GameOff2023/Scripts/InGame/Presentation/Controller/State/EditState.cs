@@ -9,11 +9,13 @@ namespace GameOff2023.InGame.Presentation.Controller
     {
         private readonly SoundUseCase _soundUseCase;
         private readonly EditCompButtonView _editCompButtonView;
+        private readonly PlayerView _playerView;
 
-        public EditState(SoundUseCase soundUseCase, EditCompButtonView editCompButtonView)
+        public EditState(SoundUseCase soundUseCase, EditCompButtonView editCompButtonView, PlayerView playerView)
         {
             _soundUseCase = soundUseCase;
             _editCompButtonView = editCompButtonView;
+            _playerView = playerView;
         }
 
         public override GameState state => GameState.Edit;
@@ -26,8 +28,10 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
+            _playerView.SetIsEdit(true);
             await _editCompButtonView.PushAsync(token);
-            
+
+            _playerView.SetIsEdit(false);
             return GameState.Move;
         }
     }

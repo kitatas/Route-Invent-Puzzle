@@ -40,8 +40,7 @@ namespace GameOff2023.InGame.Presentation.Controller
                 switch (next)
                 {
                     case FailNextType.Retry:
-                        // TODO: やり直し
-                        break;
+                        return GameState.SetUp;
                     case FailNextType.Retire:
                         return GameState.Back;
                 }

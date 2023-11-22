@@ -38,5 +38,17 @@ namespace GameOff2023.InGame
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
         }
+
+        public static Quaternion ToQuaternion(this Direction direction)
+        {
+            return direction switch
+            {
+                Direction.Up => Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)),
+                Direction.Down => Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f)),
+                Direction.Left => Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f)),
+                Direction.Right => Quaternion.Euler(new Vector3(0.0f, 0.0f, 270.0f)),
+                _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+            };
+        }
     }
 }

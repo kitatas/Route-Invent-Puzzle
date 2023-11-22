@@ -36,5 +36,13 @@ namespace GameOff2023.InGame
     public sealed class PlayerConfig
     {
         public const float ADJUST_TIME = 0.1f;
+
+        public static readonly Direction[] DIRECTIONS = new[]
+        {
+            Direction.Up,
+            Direction.Right,
+            Direction.Down,
+            Direction.Left,
+        };
     }
 }

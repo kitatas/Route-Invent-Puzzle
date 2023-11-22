@@ -4,23 +4,38 @@ using MagicTween;
 using UniEx;
 using UniRx;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace GameOff2023.InGame.Presentation.View
 {
-    public sealed class PlayerView : StageObjectView
+    public sealed class PlayerView : StageObjectView, IPointerDownHandler
     {
         [SerializeField] private float moveSpeed = default;
 
-        [HideInInspector] public Direction direction = default;
+        public Direction direction => _direction.Value;
         public ScaleType scaleType => _scaleType.Value;
         public bool isDead => _isDead.Value;
 
+        private ReactiveProperty<Direction> _direction;
         private ReactiveProperty<ScaleType> _scaleType;
         private ReactiveProperty<bool> _isDead;
         private Vector3 _hidePosition;
+        private bool _isEdit;
+        private int _directionIndex;
 
         private void Awake()
         {
+            _direction = new ReactiveProperty<Direction>(Direction.Up);
+            _direction
+                .Subscribe(x =>
+                {
+                    spriteRenderer.transform
+                        .TweenLocalRotation(x.ToQuaternion(), PlayerConfig.ADJUST_TIME)
+                        .SetEase(Ease.Linear)
+                        .SetLink(gameObject);
+                })
+                .AddTo(this);
+
             _scaleType = new ReactiveProperty<ScaleType>(ScaleType.Large);
             _scaleType
                 .Subscribe(x =>
@@ -45,11 +60,12 @@ namespace GameOff2023.InGame.Presentation.View
 
         public void Init()
         {
-            direction = Direction.Up;
+            SetDirection(Direction.Up);
             SetScaleType(ScaleType.Large);
             spriteRenderer.SetColorA(0.0f);
             _isDead.Value = false;
             _hidePosition = currentPosition;
+            _directionIndex = 0;
         }
 
         public void Tick(float deltaTime)
@@ -57,9 +73,24 @@ namespace GameOff2023.InGame.Presentation.View
             transform.Translate(deltaTime * moveSpeed * direction.ToVector2());
         }
 
+        public void SetIsEdit(bool value)
+        {
+            _isEdit = value;
+        }
+
+        public void SetDirection(Direction value)
+        {
+            _direction.Value = value;
+        }
+
         public void SetScaleType(ScaleType type)
         {
             _scaleType.Value = type;
+        }
+
+        public void SetDead()
+        {
+            _isDead.Value = true;
         }
 
         public async UniTask TweenPositionAsync(Vector3 target, CancellationToken token)
@@ -71,15 +102,18 @@ namespace GameOff2023.InGame.Presentation.View
                 .WithCancellation(token);
         }
 
-        public void SetDead()
-        {
-            _isDead.Value = true;
-        }
-
         public override Tween Hide(float duration)
         {
             return base.Hide(duration)
                 .OnComplete(() => SetPosition(_hidePosition));
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (_isEdit == false) return;
+
+            _directionIndex.RepeatIncrement(0, PlayerConfig.DIRECTIONS.GetLastIndex());
+            SetDirection(PlayerConfig.DIRECTIONS[_directionIndex]);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace GameOff2023.InGame.Domain.UseCase
             _stageRepository = stageRepository;
         }
 
-        public void Build()
+        public void Build(Presentation.View.GoalView goalView, Presentation.View.PlayerView playerView)
         {
             for (int x = 1; x <= StageConfig.X; x++)
             {
@@ -59,10 +59,10 @@ namespace GameOff2023.InGame.Domain.UseCase
                 switch (cell.type)
                 {
                     case ObjectType.Player:
-                        stageObjectView = Object.FindObjectOfType<Presentation.View.PlayerView>();
+                        stageObjectView = playerView;
                         break;
                     case ObjectType.Goal:
-                        stageObjectView = Object.FindObjectOfType<Presentation.View.GoalView>();
+                        stageObjectView = goalView;
                         break;
                     // TODO: 他objectはtableからprefab生成する
                     default:

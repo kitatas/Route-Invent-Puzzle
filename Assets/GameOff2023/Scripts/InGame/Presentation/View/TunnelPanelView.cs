@@ -21,13 +21,13 @@ namespace GameOff2023.InGame.Presentation.View
             {
                 if (player.direction.IsEnter(scaleDown) && player.scaleType == ScaleType.Small)
                 {
-                    player.direction = scaleUp;
+                    player.SetDirection(scaleUp);
                     player.SetPosition(transform.position);
                     player.SetScaleType(ScaleType.Large);
                 }
                 else if (player.direction.IsEnter(scaleUp) && player.scaleType == ScaleType.Large)
                 {
-                    player.direction = scaleDown;
+                    player.SetDirection(scaleDown);
                     player.SetPosition(transform.position);
                     player.SetScaleType(ScaleType.Small);
                 }

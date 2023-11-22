@@ -21,12 +21,12 @@ namespace GameOff2023.InGame.Presentation.View
             {
                 if (player.direction.IsEnter(direction1))
                 {
-                    player.direction = direction2;
+                    player.SetDirection(direction2);
                     player.SetPosition(transform.position);
                 }
                 else if (player.direction.IsEnter(direction2))
                 {
-                    player.direction = direction1;
+                    player.SetDirection(direction1);
                     player.SetPosition(transform.position);
                 }
                 else
