@@ -7,6 +7,14 @@ namespace GameOff2023.InGame
         Edit,
         Move,
         Clear,
+        Fail,
+    }
+
+    public enum FailNextType
+    {
+        None,
+        Retry,
+        Retire,
     }
 
     public enum Direction

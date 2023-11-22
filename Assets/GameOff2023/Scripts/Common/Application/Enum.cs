@@ -6,6 +6,7 @@ namespace GameOff2023.Common
         Option,
         Information,
         Clear,
+        Fail,
     }
 
     public enum BgmType

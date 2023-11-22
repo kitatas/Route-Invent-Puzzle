@@ -10,6 +10,7 @@ namespace GameOff2023.Common
         public const string OPTION_PATH = BASE_PATH + "/Option";
         public const string INFORMATION_PATH = BASE_PATH + "/Information";
         public const string CLEAR_PATH = BASE_PATH + "/Clear";
+        public const string FAIL_PATH = BASE_PATH + "/Fail";
     }
 
     public sealed class PageConfig

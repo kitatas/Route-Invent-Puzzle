@@ -10,12 +10,13 @@ namespace GameOff2023.Base.Presentation.View
     {
         [SerializeField] protected BaseButtonView closeButtonView = default;
 
+        protected ModalContainer modalContainer => ModalContainer.Of(transform);
+
         public override IEnumerator Initialize()
         {
             closeButtonView.AddPushEvent(() =>
             {
                 // モーダルの非表示
-                var modalContainer = ModalContainer.Of(transform);
                 modalContainer.Pop(true);
             });
 

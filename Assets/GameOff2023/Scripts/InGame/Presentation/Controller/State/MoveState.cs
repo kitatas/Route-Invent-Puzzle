@@ -35,8 +35,7 @@ namespace GameOff2023.InGame.Presentation.Controller
             {
                 if (_playerView.isDead)
                 {
-                    // TODO: failed
-                    return GameState.None;
+                    return GameState.Fail;
                 }
 
                 if (_goalView.IsGoal(_playerView))
