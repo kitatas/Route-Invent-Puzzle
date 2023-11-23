@@ -41,5 +41,10 @@ namespace GameOff2023.InGame.Presentation.View
 
             stockView.SetUpPanel(fieldView.notFixedCells);
         }
+
+        public void ActivateEdit(bool value)
+        {
+            stockView.ExecPanel(panel => panel.SetIsEdit(value));
+        }
     }
 }
