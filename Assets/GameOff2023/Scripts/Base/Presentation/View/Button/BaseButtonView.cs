@@ -44,5 +44,10 @@ namespace GameOff2023.Base.Presentation.View
         }
 
         public void AddPushEvent(Action action) => _pushed += action;
+
+        public void Activate(bool value)
+        {
+            button.interactable = value;
+        }
     }
 }
