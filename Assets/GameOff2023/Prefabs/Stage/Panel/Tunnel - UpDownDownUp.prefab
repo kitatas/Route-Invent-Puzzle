@@ -57,6 +57,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4634104757434441838, guid: 678deff32db994c4dafbcc426afc88dd, type: 3}
+      propertyPath: panelType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634104757434441838, guid: 678deff32db994c4dafbcc426afc88dd, type: 3}
       propertyPath: scaleDown
       value: 1
       objectReference: {fileID: 0}
