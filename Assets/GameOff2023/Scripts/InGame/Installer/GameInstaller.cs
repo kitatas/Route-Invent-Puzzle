@@ -18,7 +18,6 @@ namespace GameOff2023.InGame.Installer
         protected override void Configure(IContainerBuilder builder)
         {
             // Entity
-            builder.Register<StageEntity>(Lifetime.Scoped);
             builder.Register<StateEntity>(Lifetime.Scoped);
 
             // UseCase
