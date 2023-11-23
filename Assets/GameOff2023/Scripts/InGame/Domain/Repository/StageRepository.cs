@@ -77,11 +77,17 @@ namespace GameOff2023.InGame.Domain.Repository
             return data;
         }
 
-        public List<Data.DataStore.StageData> stageData => _stageData;
+        public List<StageData> stageData => _stageData;
 
         public StageData FindStageData(Data.Entity.LevelEntity levelEntity)
         {
-            return stageData.Find(x => x.level.IsEqual(levelEntity));
+            var data = stageData.Find(x => x.level.IsEqual(levelEntity));
+            if (data == null)
+            {
+                throw new Exception();
+            }
+
+            return data;
         }
     }
 }

@@ -23,6 +23,11 @@ namespace GameOff2023.InGame.Domain.UseCase
             _stageRepository = stageRepository;
         }
 
+        public Data.DataStore.StageData GetStageData()
+        {
+            return _stageRepository.FindStageData(_levelEntity);
+        }
+
         public void Build(Presentation.View.GoalView goalView, Presentation.View.PlayerView playerView)
         {
             for (int x = 1; x <= StageConfig.X; x++)

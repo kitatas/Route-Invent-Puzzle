@@ -9,6 +9,8 @@ namespace GameOff2023.InGame.Presentation.View
     public sealed class FieldView : MonoBehaviour
     {
         [SerializeField] private CellView cellView = default;
+        [SerializeField] private GoalView goalView = default;
+        [SerializeField] private PlayerView playerView = default;
 
         private List<CellView> _fields;
 
@@ -31,6 +33,34 @@ namespace GameOff2023.InGame.Presentation.View
             }
 
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: token);
+        }
+
+        public void BuildField(Data.Entity.CellEntity cellEntity)
+        {
+            var cell = _fields.Find(x => x.currentPosition == cellEntity.position);
+            if (cell == null)
+            {
+                throw new Exception();
+            }
+
+            cell.SetType(CellType.Fixed);
+
+            StageObjectView stageObjectView;
+            switch (cellEntity.type)
+            {
+                case ObjectType.Player:
+                    playerView.SetStartPosition(cellEntity.position);
+                    stageObjectView = playerView;
+                    break;
+                case ObjectType.Goal:
+                    stageObjectView = goalView;
+                    break;
+                default:
+                    throw new Exception();
+            }
+
+            stageObjectView.SetPosition(cellEntity.position);
+            stageObjectView.Show(StageObjectConfig.SHOW_TIME);
         }
     }
 }
