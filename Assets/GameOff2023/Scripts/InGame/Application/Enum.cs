@@ -3,6 +3,7 @@ namespace GameOff2023.InGame
     public enum GameState
     {
         None,
+        Build,
         SetUp,
         Edit,
         Move,

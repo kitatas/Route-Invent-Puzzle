@@ -28,6 +28,7 @@ namespace GameOff2023.InGame.Installer
             // Controller
             builder.Register<StateController>(Lifetime.Scoped);
             builder.Register<BaseState, BackState>(Lifetime.Scoped);
+            builder.Register<BaseState, BuildState>(Lifetime.Scoped);
             builder.Register<BaseState, ClearState>(Lifetime.Scoped);
             builder.Register<BaseState, EditState>(Lifetime.Scoped);
             builder.Register<BaseState, FailState>(Lifetime.Scoped);
@@ -45,6 +46,7 @@ namespace GameOff2023.InGame.Installer
             builder.RegisterInstance<EditCompButtonView>(editCompButtonView);
             builder.RegisterInstance<ResetButtonView>(resetButtonView);
             builder.RegisterInstance<GamePageView>(gamePageView);
+            builder.RegisterComponentInHierarchy<StageView>();
         }
     }
 }
