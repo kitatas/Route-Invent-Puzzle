@@ -1,7 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameOff2023.Common.Domain.UseCase;
-using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.View;
 
 namespace GameOff2023.InGame.Presentation.Controller
@@ -9,17 +8,15 @@ namespace GameOff2023.InGame.Presentation.Controller
     public sealed class EditState : BaseState
     {
         private readonly SoundUseCase _soundUseCase;
-        private readonly StageUseCase _stageUseCase;
         private readonly EditCompButtonView _editCompButtonView;
         private readonly ResetButtonView _resetButtonView;
         private readonly PlayerView _playerView;
         private readonly StageView _stageView;
 
-        public EditState(SoundUseCase soundUseCase, StageUseCase stageUseCase, EditCompButtonView editCompButtonView,
+        public EditState(SoundUseCase soundUseCase, EditCompButtonView editCompButtonView,
             ResetButtonView resetButtonView, PlayerView playerView, StageView stageView)
         {
             _soundUseCase = soundUseCase;
-            _stageUseCase = stageUseCase;
             _editCompButtonView = editCompButtonView;
             _resetButtonView = resetButtonView;
             _playerView = playerView;
@@ -31,7 +28,7 @@ namespace GameOff2023.InGame.Presentation.Controller
         public override async UniTask InitAsync(CancellationToken token)
         {
             _editCompButtonView.Init(x => _soundUseCase.PlaySe(x));
-            _resetButtonView.Init(x => _soundUseCase.PlaySe(x), _stageUseCase.ResetPanel);
+            _resetButtonView.Init(x => _soundUseCase.PlaySe(x), _stageView.ResetPanel);
             await UniTask.Yield(token);
         }
 

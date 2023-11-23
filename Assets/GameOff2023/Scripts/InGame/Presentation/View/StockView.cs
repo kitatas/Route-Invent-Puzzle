@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using MagicTween;
 using UniEx;
 using UnityEngine;
 
@@ -76,6 +77,21 @@ namespace GameOff2023.InGame.Presentation.View
         {
             return _panels
                 .Find(x => x != condition.panel && x.currentPosition == condition.position);
+        }
+
+        public void Hide(float duration)
+        {
+            foreach (var stock in _stocks)
+            {
+                stock.Hide(duration)
+                    .OnComplete(() => Destroy(stock.gameObject));
+            }
+
+            foreach (var panel in _panels)
+            {
+                panel.Hide(duration)
+                    .OnComplete(() => Destroy(panel.gameObject));
+            }
         }
     }
 }

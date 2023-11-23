@@ -1,6 +1,5 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.View;
 using UnityEngine;
 
@@ -8,15 +7,15 @@ namespace GameOff2023.InGame.Presentation.Controller
 {
     public sealed class MoveState : BaseState
     {
-        private readonly StageUseCase _stageUseCase;
         private readonly GoalView _goalView;
         private readonly PlayerView _playerView;
+        private readonly StageView _stageView;
 
-        public MoveState(StageUseCase stageUseCase, GoalView goalView, PlayerView playerView)
+        public MoveState(GoalView goalView, PlayerView playerView, StageView stageView)
         {
-            _stageUseCase = stageUseCase;
             _goalView = goalView;
             _playerView = playerView;
+            _stageView = stageView;
         }
 
         public override GameState state => GameState.Move;
@@ -47,7 +46,7 @@ namespace GameOff2023.InGame.Presentation.Controller
                 var deltaTime = Time.deltaTime;
                 _playerView.Tick(deltaTime);
 
-                _stageUseCase.ExecPanelEffect(_playerView);
+                _stageView.ExecPanelEffect(_playerView);
 
                 await UniTask.Yield(token);
             }

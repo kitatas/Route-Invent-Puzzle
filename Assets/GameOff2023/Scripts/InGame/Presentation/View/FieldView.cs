@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using MagicTween;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Presentation.View
@@ -67,6 +68,18 @@ namespace GameOff2023.InGame.Presentation.View
 
             stageObjectView.SetPosition(cellEntity.position);
             stageObjectView.Show(StageObjectConfig.SHOW_TIME);
+        }
+
+        public void Hide(float duration)
+        {
+            foreach (var field in _fields)
+            {
+                field.Hide(duration)
+                    .OnComplete(() => Destroy(field.gameObject));
+            }
+
+            goalView.Hide(duration);
+            playerView.Hide(duration);
         }
     }
 }

@@ -46,5 +46,21 @@ namespace GameOff2023.InGame.Presentation.View
         {
             stockView.ExecPanel(panel => panel.SetIsEdit(value));
         }
+
+        public void ResetPanel()
+        {
+            stockView.ExecPanel(panel => panel.ResetPosition());
+        }
+
+        public void ExecPanelEffect(PlayerView playerView)
+        {
+            stockView.ExecPanel(panel => panel.ExecAction(playerView));
+        }
+
+        public void Hide()
+        {
+            fieldView.Hide(StageObjectConfig.HIDE_TIME);
+            stockView.Hide(StageObjectConfig.HIDE_TIME);
+        }
     }
 }
