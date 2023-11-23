@@ -5,10 +5,13 @@ namespace GameOff2023.InGame.Presentation.View
 {
     public sealed class TunnelPanelView : PanelView
     {
+        [SerializeField] private PanelType panelType = default;
         [SerializeField] private Direction scaleUp = default;
         [SerializeField] private Direction scaleDown = default;
 
         private bool _isScale = false;
+
+        public override PanelType type => panelType;
 
         public override void ExecAction(PlayerView player)
         {

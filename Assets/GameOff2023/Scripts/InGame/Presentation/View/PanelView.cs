@@ -12,20 +12,24 @@ namespace GameOff2023.InGame.Presentation.View
         private CameraView _cameraView;
         private List<CellView> _cellViews;
         private Func<(PanelView, Vector3), PanelView> _findPanel;
-        private Func<GameState, bool> _isState;
+        private bool _isEdit;
         private Vector3 _initPosition;
         private Vector3 _startPosition;
 
-        public void SetUp(List<CellView> cellViews, Func<(PanelView, Vector3), PanelView> findPanel,
-            Func<GameState, bool> isState, Vector3 position)
+        public abstract PanelType type { get; }
+
+        public void SetUp(List<CellView> cellViews, Func<(PanelView, Vector3), PanelView> findPanel)
         {
             _cameraView = FindObjectOfType<CameraView>();
             _cellViews = cellViews;
             _findPanel = findPanel;
-            _isState = isState;
-            _initPosition = position;
 
-            SetPosition(_initPosition);
+            ResetPosition();
+        }
+
+        public void SetInitPosition(Vector3 position)
+        {
+            _initPosition = position;
         }
 
         public void ResetPosition()
@@ -33,10 +37,14 @@ namespace GameOff2023.InGame.Presentation.View
             SetPosition(_initPosition);
         }
 
+        public void SetIsEdit(bool value)
+        {
+            _isEdit = value;
+        }
+
         public virtual void OnDrag(PointerEventData eventData)
         {
-            var isEdit = _isState?.Invoke(GameState.Edit);
-            if (!isEdit.HasValue || !isEdit.Value) return;
+            if (_isEdit == false) return;
 
             var position = _cameraView.GetWorldPoint(eventData.position);
             position.z = -1.0f;
@@ -54,8 +62,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         public virtual void OnPointerDown(PointerEventData eventData)
         {
-            var isEdit = _isState?.Invoke(GameState.Edit);
-            if (!isEdit.HasValue || !isEdit.Value) return;
+            if (_isEdit == false) return;
 
             _startPosition = currentPosition;
 
@@ -67,8 +74,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         public virtual void OnPointerUp(PointerEventData eventData)
         {
-            var isEdit = _isState?.Invoke(GameState.Edit);
-            if (!isEdit.HasValue || !isEdit.Value) return;
+            if (_isEdit == false) return;
 
             var cell = _cellViews.Find(cell => cell.IsEqualPosition(currentXToInt, currentYToInt));
             if (cell)

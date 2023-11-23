@@ -31,5 +31,15 @@ namespace GameOff2023.InGame.Presentation.View
                 fieldView.BuildField(cellEntity);
             }
         }
+
+        public void BuildPanel(Data.Entity.PanelEntity[] panelEntities)
+        {
+            for (int i = 0; i < panelEntities.Length; i++)
+            {
+                stockView.BuildPanel(i, panelEntities[i]);
+            }
+
+            stockView.SetUpPanel(fieldView.notFixedCells);
+        }
     }
 }

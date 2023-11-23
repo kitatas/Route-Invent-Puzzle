@@ -30,6 +30,7 @@ namespace GameOff2023.InGame.Presentation.Controller
 
             var stageData = _stageUseCase.GetStageData();
             _stageView.BuildField(stageData.cells);
+            _stageView.BuildPanel(stageData.panels);
 
             return GameState.SetUp;
         }

@@ -5,10 +5,13 @@ namespace GameOff2023.InGame.Presentation.View
 {
     public sealed class CurvePanelView : PanelView
     {
+        [SerializeField] private PanelType panelType = default;
         [SerializeField] private Direction direction1 = default;
         [SerializeField] private Direction direction2 = default;
 
         private bool _isCurving = false;
+
+        public override PanelType type => panelType;
 
         public override void ExecAction(PlayerView player)
         {

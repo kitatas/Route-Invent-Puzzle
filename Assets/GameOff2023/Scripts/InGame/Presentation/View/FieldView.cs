@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -13,6 +14,11 @@ namespace GameOff2023.InGame.Presentation.View
         [SerializeField] private PlayerView playerView = default;
 
         private List<CellView> _fields;
+
+        public List<CellView> notFixedCells =>
+            _fields
+                .Where(x => x.cellType != CellType.Fixed)
+                .ToList();
 
         public void Init()
         {

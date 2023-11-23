@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using UniEx;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Presentation.View
@@ -9,12 +11,15 @@ namespace GameOff2023.InGame.Presentation.View
     public sealed class StockView : MonoBehaviour
     {
         [SerializeField] private CellView cellView = default;
+        [SerializeField] private List<PanelView> panelViews = default;
 
         private List<CellView> _stocks;
+        private List<PanelView> _panels;
 
         public void Init()
         {
             _stocks = new List<CellView>();
+            _panels = new List<PanelView>();
         }
 
         public async UniTask BuildAsync(float duration, CancellationToken token)
@@ -34,6 +39,43 @@ namespace GameOff2023.InGame.Presentation.View
             }
 
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: token);
+        }
+
+        public void BuildPanel(int index, Data.Entity.PanelEntity panelEntity)
+        {
+            if (_stocks.TryGetValue(index, out var cell))
+            {
+                var panel = panelViews.Find(x => x.type == panelEntity.type);
+                if (panel == null)
+                {
+                    throw new Exception();
+                }
+
+                var view = Instantiate(panel, transform);
+                view.SetInitPosition(cell.currentPosition);
+                _panels.Add(view);
+            }
+        }
+
+        public void ExecPanel(Action<PanelView> action)
+        {
+            _panels.Each(x => action?.Invoke(x));
+        }
+
+        public void SetUpPanel(List<CellView> notFixedCells)
+        {
+            var placeable = notFixedCells.Concat(_stocks).ToList();
+            ExecPanel(panel =>
+            {
+                panel.SetUp(placeable, FindPanelByPosition);
+                panel.Show(StageObjectConfig.SHOW_TIME);
+            });
+        }
+
+        public PanelView FindPanelByPosition((PanelView panel, Vector3 position) condition)
+        {
+            return _panels
+                .Find(x => x != condition.panel && x.currentPosition == condition.position);
         }
     }
 }
