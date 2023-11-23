@@ -73,7 +73,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             SetDirection(PlayerConfig.DIRECTIONS[_directionIndex]);
             SetScaleType(ScaleType.Large);
-            this.Delay(PlayerConfig.ADJUST_TIME, () => spriteRenderer.SetColorA(1.0f));
+            Show(PlayerConfig.ADJUST_TIME);
             _isDead.Value = false;
             SetPosition(_startPosition);
         }
