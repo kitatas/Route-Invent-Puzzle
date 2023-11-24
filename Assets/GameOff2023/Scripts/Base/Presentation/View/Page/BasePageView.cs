@@ -14,11 +14,15 @@ namespace GameOff2023.Base.Presentation.View
         public virtual void SetUp(Action<SeType> playSe, string nextResourceKey)
         {
             closeButtonView.Init(playSe);
-            closeButtonView.AddPushEvent(() =>
+
+            if (string.IsNullOrEmpty(nextResourceKey) == false)
             {
-                // 次に表示するPageのResourceKey
-                container.Push(nextResourceKey, true, stack: false);
-            });
+                closeButtonView.AddPushEvent(() =>
+                {
+                    // 次に表示するPageのResourceKey
+                    container.Push(nextResourceKey, true, stack: false);
+                });
+            }
         }
     }
 }

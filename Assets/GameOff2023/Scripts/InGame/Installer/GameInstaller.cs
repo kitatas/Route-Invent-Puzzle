@@ -38,7 +38,6 @@ namespace GameOff2023.InGame.Installer
             builder.UseEntryPoints(Lifetime.Transient, entryPoints =>
             {
                 entryPoints.Add<GamePresenter>();
-                entryPoints.Add<StatePresenter>();
             });
 
             // View
