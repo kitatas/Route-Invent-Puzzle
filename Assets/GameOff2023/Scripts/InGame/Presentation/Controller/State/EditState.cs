@@ -39,6 +39,7 @@ namespace GameOff2023.InGame.Presentation.Controller
             _stageView.ActivateEdit(true);
             await _editCompButtonView.PushAsync(token);
 
+            _editCompButtonView.Activate(false);
             _resetButtonView.Activate(false);
             _playerView.SetIsEdit(false);
             _stageView.ActivateEdit(false);
