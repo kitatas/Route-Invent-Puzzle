@@ -18,7 +18,8 @@ namespace GameOff2023.Base.Presentation.View
 
         public virtual void Init(Action<SeType> playSe)
         {
-            push.Subscribe(_ => _pushed?.Invoke())
+            push.ThrottleFirst(TimeSpan.FromSeconds(UiConfig.PUSH_TIME * 2))
+                .Subscribe(_ => _pushed?.Invoke())
                 .AddTo(this);
 
             var defaultScale = transform.localScale;
