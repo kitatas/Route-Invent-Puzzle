@@ -38,9 +38,13 @@ namespace GameOff2023.InGame.Presentation.View
 
         public void BuildPanel(Data.Entity.PanelEntity[] panelEntities)
         {
-            for (int i = 0; i < panelEntities.Length; i++)
+            var index = 0;
+            foreach (var panelEntity in panelEntities)
             {
-                stockView.BuildPanel(i, panelEntities[i]);
+                for (int j = 0; j < panelEntity.num; j++)
+                {
+                    stockView.BuildPanel(index++, panelEntity);
+                }
             }
 
             stockView.SetUpPanel(fieldView.notFixedCells);

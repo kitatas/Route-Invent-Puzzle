@@ -25,12 +25,12 @@ namespace GameOff2023.InGame.Presentation.View
 
         public async UniTask BuildAsync(float duration, CancellationToken token)
         {
-            for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 5; j++)
             {
-                var x = 11.0f + i;
-                for (int j = 0; j < 5; j++)
+                var y = 7.0f - j;
+                for (int i = 0; i < 2; i++)
                 {
-                    var y = 7.0f - j;
+                    var x = 11.0f + i;
                     var cell = Instantiate(cellView, transform);
                     cell.SetType(CellType.Stock);
                     cell.SetPosition(new Vector3(x, y, 0.0f));

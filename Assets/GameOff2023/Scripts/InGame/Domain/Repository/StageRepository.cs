@@ -28,14 +28,10 @@ namespace GameOff2023.InGame.Domain.Repository
                     },
                     panels = new[]
                     {
-                        new Data.Entity.PanelEntity { type = (PanelType)1, num = 1 },
-                        new Data.Entity.PanelEntity { type = (PanelType)2, num = 1 },
+                        new Data.Entity.PanelEntity { type = (PanelType)1, num = 3 },
+                        new Data.Entity.PanelEntity { type = (PanelType)2, num = 2 },
                         new Data.Entity.PanelEntity { type = (PanelType)3, num = 1 },
                         new Data.Entity.PanelEntity { type = (PanelType)4, num = 1 },
-                        new Data.Entity.PanelEntity { type = (PanelType)5, num = 1 },
-                        new Data.Entity.PanelEntity { type = (PanelType)6, num = 1 },
-                        new Data.Entity.PanelEntity { type = (PanelType)7, num = 1 },
-                        new Data.Entity.PanelEntity { type = (PanelType)8, num = 1 },
                     },
                 },
                 new StageData
