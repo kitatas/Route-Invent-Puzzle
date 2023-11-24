@@ -1,16 +1,19 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using MagicTween;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Presentation.View
 {
     public sealed class StageView : MonoBehaviour
     {
+        [SerializeField] private BackgroundView backgroundView = default;
         [SerializeField] private FieldView fieldView = default;
         [SerializeField] private StockView stockView = default;
 
         public void Init()
         {
+            backgroundView.Init();
             fieldView.Init();
             stockView.Init();
         }
@@ -19,6 +22,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             // Stageの基盤生成
             await (
+                backgroundView.Show(StageObjectConfig.SHOW_TIME).WithCancellation(token),
                 fieldView.BuildAsync(StageObjectConfig.SHOW_TIME, token),
                 stockView.BuildAsync(StageObjectConfig.SHOW_TIME, token)
             );
@@ -59,6 +63,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         public void Hide()
         {
+            backgroundView.Hide(StageObjectConfig.HIDE_TIME);
             fieldView.Hide(StageObjectConfig.HIDE_TIME);
             stockView.Hide(StageObjectConfig.HIDE_TIME);
         }
