@@ -16,7 +16,7 @@ namespace GameOff2023.InGame.Presentation.View
         private void Awake()
         {
             spriteRenderer.SetColorA(0.0f);
-            transform.localScale = Vector3.one * 0.5f;
+            transform.localScale = Vector3.one * StageObjectConfig.HIDE_SCALE_RATE;
         }
 
         public void SetPosition(Vector3 position, float duration = 0.0f)
@@ -40,7 +40,7 @@ namespace GameOff2023.InGame.Presentation.View
                 .Append(spriteRenderer
                     .TweenColorAlpha(1.0f, duration))
                 .Join(transform
-                    .TweenLocalScale(Vector3.one * 0.9f, duration))
+                    .TweenLocalScale(Vector3.one * StageObjectConfig.SHOW_SCALE_RATE, duration))
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }
@@ -51,7 +51,7 @@ namespace GameOff2023.InGame.Presentation.View
                 .Append(spriteRenderer
                     .TweenColorAlpha(0.0f, duration))
                 .Join(transform
-                    .TweenLocalScale(Vector3.one * 0.5f, duration))
+                    .TweenLocalScale(Vector3.one * StageObjectConfig.HIDE_SCALE_RATE, duration))
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }

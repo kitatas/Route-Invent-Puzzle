@@ -98,7 +98,7 @@ namespace GameOff2023.InGame.Presentation.View
             }
 
             transform
-                .TweenLocalScale(Vector3.one, PanelConfig.ADJUST_TIME)
+                .TweenLocalScale(Vector3.one * StageObjectConfig.SHOW_SCALE_RATE, PanelConfig.ADJUST_TIME)
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }

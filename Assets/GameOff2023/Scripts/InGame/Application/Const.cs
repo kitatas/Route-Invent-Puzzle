@@ -19,6 +19,9 @@ namespace GameOff2023.InGame
     {
         public const float SHOW_TIME = 0.25f;
         public const float HIDE_TIME = 0.25f;
+
+        public const float HIDE_SCALE_RATE = 0.5f;
+        public const float SHOW_SCALE_RATE = 0.9f;
     }
 
     public sealed class CellConfig
