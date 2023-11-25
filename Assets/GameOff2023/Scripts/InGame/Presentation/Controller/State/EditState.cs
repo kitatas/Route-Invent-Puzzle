@@ -34,6 +34,7 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
+            _editCompButtonView.Activate(true);
             _resetButtonView.Activate(true);
             _playerView.SetIsEdit(true);
             _stageView.ActivateEdit(true);
