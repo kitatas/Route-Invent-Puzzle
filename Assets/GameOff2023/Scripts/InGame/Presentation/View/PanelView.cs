@@ -9,6 +9,8 @@ namespace GameOff2023.InGame.Presentation.View
 {
     public abstract class PanelView : StageObjectView, IDragHandler, IPointerDownHandler, IPointerUpHandler
     {
+        [SerializeField] private PanelType panelType = default;
+        
         private CameraView _cameraView;
         private List<CellView> _cellViews;
         private Func<(PanelView, Vector3), PanelView> _findPanel;
@@ -16,7 +18,7 @@ namespace GameOff2023.InGame.Presentation.View
         private Vector3 _initPosition;
         private Vector3 _startPosition;
 
-        public abstract PanelType type { get; }
+        public PanelType type => panelType;
 
         public void SetUp(List<CellView> cellViews, Func<(PanelView, Vector3), PanelView> findPanel)
         {
