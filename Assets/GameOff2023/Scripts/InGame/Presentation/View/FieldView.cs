@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using MagicTween;
+using UniEx;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Presentation.View
@@ -12,11 +13,14 @@ namespace GameOff2023.InGame.Presentation.View
     {
         [SerializeField] private CellView cellView = default;
         [SerializeField] private WallView wallView = default;
+        [SerializeField] private List<PanelView> panelViews = default;
+
         [SerializeField] private GoalView goalView = default;
         [SerializeField] private PlayerView playerView = default;
 
         private List<CellView> _fields;
         private List<WallView> _walls;
+        private List<PanelView> _panels;
 
         public List<CellView> notFixedCells =>
             _fields
@@ -27,6 +31,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             _fields = new List<CellView>();
             _walls = new List<WallView>();
+            _panels = new List<PanelView>();
         }
 
         public async UniTask BuildAsync(float duration, CancellationToken token)
@@ -70,12 +75,35 @@ namespace GameOff2023.InGame.Presentation.View
                     _walls.Add(wall);
                     stageObjectView = wall;
                     break;
+                case ObjectType.CurveUpLeft:
+                case ObjectType.CurveUpRight:
+                case ObjectType.CurveDownLeft:
+                case ObjectType.CurveDownRight:
+                case ObjectType.TunnelUpUpDownDown:
+                case ObjectType.TunnelUpDownDownUp:
+                case ObjectType.TunnelUpLeftDownRight:
+                case ObjectType.TunnelUpRightDownLeft:
+                    var panelView = panelViews.Find(x => x.type == cellEntity.type.ToPanel());
+                    if (panelView == null)
+                    {
+                        throw new Exception();
+                    }
+
+                    var panel = Instantiate(panelView, transform);
+                    _panels.Add(panel);
+                    stageObjectView = panel;
+                    break;
                 default:
                     throw new Exception();
             }
 
             stageObjectView.SetPosition(cellEntity.position);
             stageObjectView.Show(StageObjectConfig.SHOW_TIME);
+        }
+
+        public void ExecPanel(Action<PanelView> action)
+        {
+            _panels.Each(x => action?.Invoke(x));
         }
 
         public void Hide(float duration)
@@ -90,6 +118,12 @@ namespace GameOff2023.InGame.Presentation.View
             {
                 wall.Hide(duration)
                     .OnComplete(() => Destroy(wall.gameObject));
+            }
+
+            foreach (var panel in _panels)
+            {
+                panel.Hide(duration)
+                    .OnComplete(() => Destroy(panel.gameObject));
             }
 
             goalView.Hide(duration);

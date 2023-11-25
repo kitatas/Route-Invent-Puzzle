@@ -41,6 +41,14 @@ namespace GameOff2023.InGame
         Player = 1,
         Goal = 2,
         Wall = 3,
+        CurveUpLeft = 4,
+        CurveUpRight = 5,
+        CurveDownLeft = 6,
+        CurveDownRight = 7,
+        TunnelUpUpDownDown = 8,
+        TunnelUpDownDownUp = 9,
+        TunnelUpLeftDownRight = 10,
+        TunnelUpRightDownLeft = 11,
     }
 
     public enum PanelType

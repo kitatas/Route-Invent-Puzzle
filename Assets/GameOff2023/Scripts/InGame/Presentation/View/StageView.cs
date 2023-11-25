@@ -62,6 +62,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         public void ExecPanelEffect(PlayerView playerView)
         {
+            fieldView.ExecPanel(panel => panel.ExecAction(playerView));
             stockView.ExecPanel(panel => panel.ExecAction(playerView));
         }
 

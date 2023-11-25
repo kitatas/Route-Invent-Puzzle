@@ -50,5 +50,21 @@ namespace GameOff2023.InGame
                 _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
             };
         }
+
+        public static PanelType ToPanel(this ObjectType type)
+        {
+            return type switch
+            {
+                ObjectType.CurveUpLeft => PanelType.CurveUpLeft,
+                ObjectType.CurveUpRight => PanelType.CurveUpRight,
+                ObjectType.CurveDownLeft => PanelType.CurveDownLeft,
+                ObjectType.CurveDownRight => PanelType.CurveDownRight,
+                ObjectType.TunnelUpUpDownDown => PanelType.TunnelUpUpDownDown,
+                ObjectType.TunnelUpDownDownUp => PanelType.TunnelUpDownDownUp,
+                ObjectType.TunnelUpLeftDownRight => PanelType.TunnelUpLeftDownRight,
+                ObjectType.TunnelUpRightDownLeft => PanelType.TunnelUpRightDownLeft,
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
+        }
     }
 }
