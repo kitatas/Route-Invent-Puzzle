@@ -6,15 +6,10 @@ namespace GameOff2023.InGame.Domain.Repository
 {
     public sealed class StageRepository
     {
-        private readonly CellData _cellData;
-        private readonly PanelTable _panelTable;
         private readonly List<StageData> _stageData;
 
-        public StageRepository(CellData cellData, PanelTable panelTable)
+        public StageRepository()
         {
-            _cellData = cellData;
-            _panelTable = panelTable;
-
             // TODO: ベタ書き修正
             _stageData = new List<StageData>
             {
@@ -72,22 +67,6 @@ namespace GameOff2023.InGame.Domain.Repository
                     },
                 },
             };
-        }
-
-        public Presentation.View.CellView GetCell()
-        {
-            return _cellData.cell;
-        }
-
-        public PanelData FindPanelData(PanelType type)
-        {
-            var data = _panelTable.data.Find(x => x.type == type);
-            if (data == null || data.view == null)
-            {
-                throw new Exception();
-            }
-
-            return data;
         }
 
         public List<StageData> stageData => _stageData;
