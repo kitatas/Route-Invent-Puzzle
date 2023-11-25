@@ -63,6 +63,10 @@ namespace GameOff2023.InGame
                 ObjectType.TunnelUpDownDownUp => PanelType.TunnelUpDownDownUp,
                 ObjectType.TunnelUpLeftDownRight => PanelType.TunnelUpLeftDownRight,
                 ObjectType.TunnelUpRightDownLeft => PanelType.TunnelUpRightDownLeft,
+                ObjectType.StreetLargeVertical => PanelType.StreetLargeVertical,
+                ObjectType.StreetLargeHorizontal => PanelType.StreetLargeHorizontal,
+                ObjectType.StreetSmallVertical => PanelType.StreetSmallVertical,
+                ObjectType.StreetSmallHorizontal => PanelType.StreetSmallHorizontal,
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
         }

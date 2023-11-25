@@ -49,6 +49,10 @@ namespace GameOff2023.InGame
         TunnelUpDownDownUp = 9,
         TunnelUpLeftDownRight = 10,
         TunnelUpRightDownLeft = 11,
+        StreetLargeVertical = 12,
+        StreetLargeHorizontal = 13,
+        StreetSmallVertical = 14,
+        StreetSmallHorizontal = 15,
     }
 
     public enum PanelType
@@ -62,6 +66,10 @@ namespace GameOff2023.InGame
         TunnelUpDownDownUp = 6,
         TunnelUpLeftDownRight = 7,
         TunnelUpRightDownLeft = 8,
+        StreetLargeVertical = 9,
+        StreetLargeHorizontal = 10,
+        StreetSmallVertical = 11,
+        StreetSmallHorizontal = 12,
     }
 
     public enum CellType

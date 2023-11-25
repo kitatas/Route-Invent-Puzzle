@@ -50,6 +50,14 @@ namespace GameOff2023.InGame.Domain.Repository
                     {
                         new Data.Entity.CellEntity { type = (ObjectType)1, x = 5, y = 7 },
                         new Data.Entity.CellEntity { type = (ObjectType)2, x = 2, y = 2 },
+                        new Data.Entity.CellEntity { type = (ObjectType)4, x = 4, y = 1 },
+                        new Data.Entity.CellEntity { type = (ObjectType)5, x = 4, y = 3 },
+                        new Data.Entity.CellEntity { type = (ObjectType)6, x = 4, y = 5 },
+                        new Data.Entity.CellEntity { type = (ObjectType)7, x = 6, y = 3 },
+                        new Data.Entity.CellEntity { type = (ObjectType)12, x = 3, y = 2 },
+                        new Data.Entity.CellEntity { type = (ObjectType)13, x = 5, y = 2 },
+                        new Data.Entity.CellEntity { type = (ObjectType)14, x = 3, y = 4 },
+                        new Data.Entity.CellEntity { type = (ObjectType)15, x = 5, y = 4 },
                     },
                     panels = new[]
                     {
