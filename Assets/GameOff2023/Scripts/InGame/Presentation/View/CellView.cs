@@ -5,8 +5,6 @@ namespace GameOff2023.InGame.Presentation.View
 {
     public sealed class CellView : StageObjectView
     {
-        [SerializeField] private SpriteRenderer spriteRenderer = default;
-
         public CellType cellType { get; private set; } = CellType.Empty;
 
         public void SetType(CellType type)
