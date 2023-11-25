@@ -23,8 +23,9 @@ namespace GameOff2023.InGame.Presentation.View
         private bool _isEdit;
         private int _directionIndex;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _direction = new ReactiveProperty<Direction>(Direction.Up);
             _direction
                 .Subscribe(x =>
@@ -56,14 +57,7 @@ namespace GameOff2023.InGame.Presentation.View
                     Hide(StageObjectConfig.HIDE_TIME);
                 })
                 .AddTo(this);
-        }
 
-        public void Init()
-        {
-            SetDirection(Direction.Up);
-            SetScaleType(ScaleType.Large);
-            spriteRenderer.SetColorA(0.0f);
-            _isDead.Value = false;
             _directionIndex = 0;
         }
 

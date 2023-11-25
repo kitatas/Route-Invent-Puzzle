@@ -13,7 +13,7 @@ namespace GameOff2023.InGame.Presentation.View
         public int currentXToInt => Mathf.RoundToInt(currentPosition.x);
         public int currentYToInt => Mathf.RoundToInt(currentPosition.y);
 
-        private void Awake()
+        protected virtual void Awake()
         {
             spriteRenderer.SetColorA(0.0f);
             transform.localScale = Vector3.one * StageObjectConfig.HIDE_SCALE_RATE;
