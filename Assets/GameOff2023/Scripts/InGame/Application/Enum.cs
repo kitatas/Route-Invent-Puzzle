@@ -40,6 +40,7 @@ namespace GameOff2023.InGame
         None = 0,
         Player = 1,
         Goal = 2,
+        Wall = 3,
     }
 
     public enum PanelType

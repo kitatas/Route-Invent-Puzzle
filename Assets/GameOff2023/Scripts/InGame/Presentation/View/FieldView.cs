@@ -11,10 +11,12 @@ namespace GameOff2023.InGame.Presentation.View
     public sealed class FieldView : MonoBehaviour
     {
         [SerializeField] private CellView cellView = default;
+        [SerializeField] private WallView wallView = default;
         [SerializeField] private GoalView goalView = default;
         [SerializeField] private PlayerView playerView = default;
 
         private List<CellView> _fields;
+        private List<WallView> _walls;
 
         public List<CellView> notFixedCells =>
             _fields
@@ -24,6 +26,7 @@ namespace GameOff2023.InGame.Presentation.View
         public void Init()
         {
             _fields = new List<CellView>();
+            _walls = new List<WallView>();
         }
 
         public async UniTask BuildAsync(float duration, CancellationToken token)
@@ -62,6 +65,11 @@ namespace GameOff2023.InGame.Presentation.View
                 case ObjectType.Goal:
                     stageObjectView = goalView;
                     break;
+                case ObjectType.Wall:
+                    var wall = Instantiate(wallView, transform);
+                    _walls.Add(wall);
+                    stageObjectView = wall;
+                    break;
                 default:
                     throw new Exception();
             }
@@ -76,6 +84,12 @@ namespace GameOff2023.InGame.Presentation.View
             {
                 field.Hide(duration)
                     .OnComplete(() => Destroy(field.gameObject));
+            }
+
+            foreach (var wall in _walls)
+            {
+                wall.Hide(duration)
+                    .OnComplete(() => Destroy(wall.gameObject));
             }
 
             goalView.Hide(duration);
