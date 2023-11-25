@@ -1,5 +1,7 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.View;
 
@@ -30,11 +32,16 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
+            // Transition完了待ち
+            await UniTask.Delay(TimeSpan.FromSeconds(PageConfig.ANIMATION_TIME), cancellationToken: token);
+
             await _stageView.BuildBaseAsync(token);
+            await UniTask.Delay(TimeSpan.FromSeconds(StageObjectConfig.SHOW_TIME), cancellationToken: token);
 
             var stageData = _stageUseCase.GetStageData();
             _stageView.BuildField(stageData.cells, _playerView, _goalView);
             _stageView.BuildPanel(stageData.panels);
+            await UniTask.Delay(TimeSpan.FromSeconds(StageObjectConfig.SHOW_TIME), cancellationToken: token);
 
             return GameState.SetUp;
         }

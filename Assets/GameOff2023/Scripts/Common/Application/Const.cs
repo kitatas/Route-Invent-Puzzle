@@ -15,6 +15,8 @@ namespace GameOff2023.Common
 
     public sealed class PageConfig
     {
+        public const float ANIMATION_TIME = 0.3f;
+        
         // container name
         public const string INGAME_CONTAINER = "InGamePageContainer";
 
