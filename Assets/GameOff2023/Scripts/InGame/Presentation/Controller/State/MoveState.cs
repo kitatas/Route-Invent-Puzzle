@@ -37,7 +37,7 @@ namespace GameOff2023.InGame.Presentation.Controller
                     return GameState.Fail;
                 }
 
-                if (_goalView.IsGoal(_playerView))
+                if (_goalView.IsGoal(_playerView) && _stageView.IsAllItemPicked())
                 {
                     await _playerView.TweenPositionAsync(_goalView.currentPosition, token);
                     return GameState.Clear;

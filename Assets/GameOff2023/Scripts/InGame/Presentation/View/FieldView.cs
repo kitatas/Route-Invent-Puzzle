@@ -13,10 +13,12 @@ namespace GameOff2023.InGame.Presentation.View
     {
         [SerializeField] private CellView cellView = default;
         [SerializeField] private WallView wallView = default;
+        [SerializeField] private ItemView itemView = default;
         [SerializeField] private List<PanelView> panelViews = default;
 
         private List<CellView> _fields;
         private List<WallView> _walls;
+        private List<ItemView> _items;
         private List<PanelView> _panels;
 
         public List<CellView> notFixedCells =>
@@ -28,6 +30,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             _fields = new List<CellView>();
             _walls = new List<WallView>();
+            _items = new List<ItemView>();
             _panels = new List<PanelView>();
         }
 
@@ -72,6 +75,11 @@ namespace GameOff2023.InGame.Presentation.View
                     _walls.Add(wall);
                     stageObjectView = wall;
                     break;
+                case ObjectType.Item:
+                    var item = Instantiate(itemView, transform);
+                    _items.Add(item);
+                    stageObjectView = item;
+                    break;
                 case ObjectType.CurveUpLeft:
                 case ObjectType.CurveUpRight:
                 case ObjectType.CurveDownLeft:
@@ -102,6 +110,11 @@ namespace GameOff2023.InGame.Presentation.View
             stageObjectView.Show(StageObjectConfig.SHOW_TIME);
         }
 
+        public bool IsAllItemPicked()
+        {
+            return _items.All(x => x.isPicked);
+        }
+
         public void ExecPanel(Action<PanelView> action)
         {
             _panels.Each(x => action?.Invoke(x));
@@ -119,6 +132,12 @@ namespace GameOff2023.InGame.Presentation.View
             {
                 wall.Hide(duration)
                     .OnComplete(() => Destroy(wall.gameObject));
+            }
+
+            foreach (var item in _items)
+            {
+                item.Hide(duration)
+                    .OnComplete(() => Destroy(item.gameObject));
             }
 
             foreach (var panel in _panels)

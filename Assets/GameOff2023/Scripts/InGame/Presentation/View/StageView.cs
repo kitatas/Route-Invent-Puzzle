@@ -60,6 +60,11 @@ namespace GameOff2023.InGame.Presentation.View
             stockView.ExecPanel(panel => panel.ResetPosition());
         }
 
+        public bool IsAllItemPicked()
+        {
+            return fieldView.IsAllItemPicked();
+        }
+
         public void ExecPanelEffect(PlayerView playerView)
         {
             fieldView.ExecPanel(panel => panel.ExecAction(playerView));
