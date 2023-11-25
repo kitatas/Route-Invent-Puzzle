@@ -103,6 +103,18 @@ namespace GameOff2023.InGame.Presentation.View
                 .SetLink(gameObject);
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (_isEdit) return;
+
+            if (other.TryGetComponent<PlayerView>(out var player))
+            {
+                TriggerEnterPlayer(player);
+            }
+        }
+
         public abstract void ExecAction(PlayerView player);
+
+        protected abstract void TriggerEnterPlayer(PlayerView player);
     }
 }

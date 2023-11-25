@@ -42,5 +42,12 @@ namespace GameOff2023.InGame.Presentation.View
                 this.Delay(1.0f, () => _isCurving = false);
             }
         }
+
+        protected override void TriggerEnterPlayer(PlayerView player)
+        {
+            if (player.direction.IsEnter(direction1)) return;
+            if (player.direction.IsEnter(direction2)) return;
+            player.SetDead();
+        }
     }
 }

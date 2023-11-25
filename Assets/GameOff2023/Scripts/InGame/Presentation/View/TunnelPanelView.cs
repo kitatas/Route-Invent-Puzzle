@@ -44,5 +44,13 @@ namespace GameOff2023.InGame.Presentation.View
                 this.Delay(1.0f, () => _isScale = false);
             }
         }
+
+        protected override void TriggerEnterPlayer(PlayerView player)
+        {
+            if (player.direction.IsEnter(scaleDown) && player.scaleType == ScaleType.Large)
+            {
+                player.SetDead();
+            }
+        }
     }
 }
