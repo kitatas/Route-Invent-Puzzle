@@ -19,7 +19,6 @@ namespace GameOff2023.InGame.Presentation.View
         private ReactiveProperty<Direction> _direction;
         private ReactiveProperty<ScaleType> _scaleType;
         private ReactiveProperty<bool> _isDead;
-        private Vector3 _hidePosition;
         private Vector3 _startPosition;
         private bool _isEdit;
         private int _directionIndex;
@@ -65,7 +64,6 @@ namespace GameOff2023.InGame.Presentation.View
             SetScaleType(ScaleType.Large);
             spriteRenderer.SetColorA(0.0f);
             _isDead.Value = false;
-            _hidePosition = currentPosition;
             _directionIndex = 0;
         }
 
@@ -117,10 +115,16 @@ namespace GameOff2023.InGame.Presentation.View
                 .WithCancellation(token);
         }
 
-        public override Tween Hide(float duration)
+        public Tween Hide(float duration, bool isDestroy = false)
         {
             return base.Hide(duration)
-                .OnComplete(() => SetPosition(_hidePosition));
+                .OnComplete(() =>
+                {
+                    if (isDestroy)
+                    {
+                        Destroy(gameObject);
+                    }
+                });
         }
 
         public void OnPointerDown(PointerEventData eventData)

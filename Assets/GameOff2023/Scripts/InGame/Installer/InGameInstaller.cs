@@ -34,8 +34,6 @@ namespace GameOff2023.InGame.Installer
             });
 
             // View
-            builder.RegisterComponentInHierarchy<GoalView>();
-            builder.RegisterComponentInHierarchy<PlayerView>();
             builder.RegisterComponentInHierarchy<ModalView>();
         }
     }

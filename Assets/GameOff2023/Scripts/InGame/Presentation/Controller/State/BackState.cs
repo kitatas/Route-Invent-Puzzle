@@ -8,10 +8,14 @@ namespace GameOff2023.InGame.Presentation.Controller
 {
     public sealed class BackState : BaseState
     {
+        private readonly GoalView _goalView;
+        private readonly PlayerView _playerView;
         private readonly StageView _stageView;
 
-        public BackState(StageView stageView)
+        public BackState(GoalView goalView, PlayerView playerView, StageView stageView)
         {
+            _goalView = goalView;
+            _playerView = playerView;
             _stageView = stageView;
         }
 
@@ -24,7 +28,9 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
-            _stageView.Hide();
+            _goalView.Hide(StageObjectConfig.HIDE_TIME);
+            _playerView.Hide(StageObjectConfig.HIDE_TIME, true);
+            _stageView.Hide(StageObjectConfig.HIDE_TIME);
 
             var pageContainer = PageContainer.Find(PageConfig.INGAME_CONTAINER);
             pageContainer.Push(PageConfig.SELECT_PATH, true, stack: false);

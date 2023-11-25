@@ -14,6 +14,8 @@ namespace GameOff2023.InGame.Installer
         [SerializeField] private EditCompButtonView editCompButtonView = default;
         [SerializeField] private ResetButtonView resetButtonView = default;
         [SerializeField] private GamePageView gamePageView = default;
+        [SerializeField] private GoalView goalView = default;
+        [SerializeField] private PlayerView playerView = default;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -44,6 +46,8 @@ namespace GameOff2023.InGame.Installer
             builder.RegisterInstance<EditCompButtonView>(editCompButtonView);
             builder.RegisterInstance<ResetButtonView>(resetButtonView);
             builder.RegisterInstance<GamePageView>(gamePageView);
+            builder.RegisterComponentInNewPrefab<GoalView>(goalView, Lifetime.Scoped);
+            builder.RegisterComponentInNewPrefab<PlayerView>(playerView, Lifetime.Scoped);
             builder.RegisterComponentInHierarchy<StageView>();
         }
     }

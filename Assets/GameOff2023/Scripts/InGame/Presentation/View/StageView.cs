@@ -28,11 +28,11 @@ namespace GameOff2023.InGame.Presentation.View
             );
         }
 
-        public void BuildField(Data.Entity.CellEntity[] cellEntities)
+        public void BuildField(Data.Entity.CellEntity[] cellEntities, PlayerView player, GoalView goal)
         {
             foreach (var cellEntity in cellEntities)
             {
-                fieldView.BuildField(cellEntity);
+                fieldView.BuildField(cellEntity, player, goal);
             }
         }
 
@@ -66,11 +66,11 @@ namespace GameOff2023.InGame.Presentation.View
             stockView.ExecPanel(panel => panel.ExecAction(playerView));
         }
 
-        public void Hide()
+        public void Hide(float duration)
         {
-            backgroundView.Hide(StageObjectConfig.HIDE_TIME);
-            fieldView.Hide(StageObjectConfig.HIDE_TIME);
-            stockView.Hide(StageObjectConfig.HIDE_TIME);
+            backgroundView.Hide(duration);
+            fieldView.Hide(duration);
+            stockView.Hide(duration);
         }
     }
 }

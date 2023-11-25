@@ -15,9 +15,6 @@ namespace GameOff2023.InGame.Presentation.View
         [SerializeField] private WallView wallView = default;
         [SerializeField] private List<PanelView> panelViews = default;
 
-        [SerializeField] private GoalView goalView = default;
-        [SerializeField] private PlayerView playerView = default;
-
         private List<CellView> _fields;
         private List<WallView> _walls;
         private List<PanelView> _panels;
@@ -50,7 +47,7 @@ namespace GameOff2023.InGame.Presentation.View
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: token);
         }
 
-        public void BuildField(Data.Entity.CellEntity cellEntity)
+        public void BuildField(Data.Entity.CellEntity cellEntity, PlayerView player, GoalView goal)
         {
             var cell = _fields.Find(x => x.currentPosition == cellEntity.position);
             if (cell == null)
@@ -64,11 +61,11 @@ namespace GameOff2023.InGame.Presentation.View
             switch (cellEntity.type)
             {
                 case ObjectType.Player:
-                    playerView.SetStartPosition(cellEntity.position);
-                    stageObjectView = playerView;
+                    player.SetStartPosition(cellEntity.position);
+                    stageObjectView = player;
                     break;
                 case ObjectType.Goal:
-                    stageObjectView = goalView;
+                    stageObjectView = goal;
                     break;
                 case ObjectType.Wall:
                     var wall = Instantiate(wallView, transform);
@@ -129,9 +126,6 @@ namespace GameOff2023.InGame.Presentation.View
                 panel.Hide(duration)
                     .OnComplete(() => Destroy(panel.gameObject));
             }
-
-            goalView.Hide(duration);
-            playerView.Hide(duration);
         }
     }
 }

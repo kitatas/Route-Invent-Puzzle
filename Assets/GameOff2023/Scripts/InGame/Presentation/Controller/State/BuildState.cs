@@ -8,11 +8,15 @@ namespace GameOff2023.InGame.Presentation.Controller
     public sealed class BuildState : BaseState
     {
         private readonly StageUseCase _stageUseCase;
+        private readonly GoalView _goalView;
+        private readonly PlayerView _playerView;
         private readonly StageView _stageView;
 
-        public BuildState(StageUseCase stageUseCase, StageView stageView)
+        public BuildState(StageUseCase stageUseCase, GoalView goalView, PlayerView playerView, StageView stageView)
         {
             _stageUseCase = stageUseCase;
+            _goalView = goalView;
+            _playerView = playerView;
             _stageView = stageView;
         }
 
@@ -29,7 +33,7 @@ namespace GameOff2023.InGame.Presentation.Controller
             await _stageView.BuildBaseAsync(token);
 
             var stageData = _stageUseCase.GetStageData();
-            _stageView.BuildField(stageData.cells);
+            _stageView.BuildField(stageData.cells, _playerView, _goalView);
             _stageView.BuildPanel(stageData.panels);
 
             return GameState.SetUp;
