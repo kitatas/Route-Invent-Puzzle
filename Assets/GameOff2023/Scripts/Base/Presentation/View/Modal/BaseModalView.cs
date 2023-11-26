@@ -14,11 +14,14 @@ namespace GameOff2023.Base.Presentation.View
 
         public override IEnumerator Initialize()
         {
-            closeButtonView.AddPushEvent(() =>
+            if (closeButtonView)
             {
-                // モーダルの非表示
-                modalContainer.Pop(true);
-            });
+                closeButtonView.AddPushEvent(() =>
+                {
+                    // モーダルの非表示
+                    modalContainer.Pop(true);
+                });
+            }
 
             yield break;
         }

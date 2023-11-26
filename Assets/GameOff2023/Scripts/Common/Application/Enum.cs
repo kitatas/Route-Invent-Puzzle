@@ -1,5 +1,12 @@
 namespace GameOff2023.Common
 {
+    public enum SceneName
+    {
+        None,
+        Boot,
+        Main,
+    }
+
     public enum ModalType
     {
         None,
@@ -9,6 +16,7 @@ namespace GameOff2023.Common
         Fail,
         Loading,
         Register,
+        Update,
     }
 
     public enum BgmType

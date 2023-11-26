@@ -5,5 +5,6 @@ namespace GameOff2023.Boot
         None,
         Load,
         Login,
+        Check,
     }
 }

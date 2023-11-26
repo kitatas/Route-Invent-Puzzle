@@ -1,5 +1,19 @@
 namespace GameOff2023.Common
 {
+    public sealed class AppConfig
+    {
+        public const int MAJOR_VERSION = 0;
+        public const int MINOR_VERSION = 1;
+        public static readonly string APP_VERSION = $"{MAJOR_VERSION.ToString()}.{MINOR_VERSION.ToString()}";
+    }
+
+    public sealed class UrlConfig
+    {
+        public const string APP_NAME = "CommanDungeon";
+        public const string DEVELOPER_APP = "https://play.google.com/store/apps/developer?id=KitaLab";
+        public const string APP = "https://play.google.com/store/apps/details?id=com.KitaLab." + APP_NAME;
+    }
+
     public sealed class ModalConfig
     {
         public const float ANIMATION_TIME = 0.3f;
@@ -15,6 +29,7 @@ namespace GameOff2023.Common
         public const string FAIL_PATH = BASE_PATH + "/Fail";
         public const string LOADING_PATH = BASE_PATH + "/Loading";
         public const string REGISTER_PATH = BASE_PATH + "/Register";
+        public const string UPDATE_PATH = BASE_PATH + "/Update";
     }
 
     public sealed class PageConfig
@@ -53,6 +68,8 @@ namespace GameOff2023.Common
     {
         public const string TITLE_ID = "";
         public const string USER_PROGRESS_KEY = "";
+        public const string MASTER_STAGE_KEY = "";
+        public const string MASTER_APP_VERSION_KEY = "";
 
         public const int MIN_NAME_LENGTH = 3;
         public const int MAX_NAME_LENGTH = 10;

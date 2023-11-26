@@ -6,6 +6,11 @@ namespace GameOff2023.Common.Data.DataStore
 {
     public sealed class PlayFabRequestData
     {
+        public static GetTitleDataRequest GetTitleDataRequest()
+        {
+            return new GetTitleDataRequest();
+        }
+
         public static LoginWithCustomIDRequest LoginWithCustomIDRequest(string uid)
         {
             return new LoginWithCustomIDRequest

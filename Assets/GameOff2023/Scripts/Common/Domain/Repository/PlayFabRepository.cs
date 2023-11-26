@@ -66,5 +66,24 @@ namespace GameOff2023.Common.Domain.Repository
                 : ExceptionConfig.FAILED_UPDATE_DATA;
             return new RetryException(message);
         }
+
+        public async UniTask<PlayFabResponseData.MasterData> FetchMasterDataAsync(CancellationToken token)
+        {
+            var response = await PlayFabHelper.CallApiAsync<GetTitleDataRequest, GetTitleDataResult>(
+                PlayFabRequestData.GetTitleDataRequest(),
+                PlayFabClientAPI.GetTitleData,
+                _ => new RetryException(ExceptionConfig.FAILED_RESPONSE_DATA),
+                new RetryException(ExceptionConfig.FAILED_RESPONSE_DATA),
+                token
+            );
+
+            var data = response.Data;
+            if (data == null)
+            {
+                throw new RebootException(ExceptionConfig.NOT_FOUND_DATA);
+            }
+
+            return new PlayFabResponseData.MasterData(data);
+        }
     }
 }

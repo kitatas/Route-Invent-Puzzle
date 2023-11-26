@@ -39,7 +39,7 @@ namespace GameOff2023.Boot.Presentation.Controller
             }
 
             await UniTask.Yield(token);
-            return BootState.None;
+            return BootState.Check;
         }
 
         private async UniTask RegisterAsync(CancellationToken token)
