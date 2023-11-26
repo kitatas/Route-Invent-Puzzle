@@ -15,6 +15,7 @@ namespace GameOff2023.Boot.Installer
 
             // Controller
             builder.Register<StateController>(Lifetime.Scoped);
+            builder.Register<BaseState, LoadState>(Lifetime.Scoped);
 
             // Presenter
             builder.UseEntryPoints(Lifetime.Transient, entryPoints =>
