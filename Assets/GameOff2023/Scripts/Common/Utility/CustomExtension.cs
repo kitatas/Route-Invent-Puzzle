@@ -12,6 +12,7 @@ namespace GameOff2023.Common
                 ModalType.Information => ModalConfig.INFORMATION_PATH,
                 ModalType.Clear => ModalConfig.CLEAR_PATH,
                 ModalType.Fail => ModalConfig.FAIL_PATH,
+                ModalType.Loading => ModalConfig.LOADING_PATH,
                 _ => throw new Exception(),
             };
         }

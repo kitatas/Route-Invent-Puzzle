@@ -25,11 +25,13 @@ namespace GameOff2023.Common.Installer
             builder.Register<SoundRepository>(Lifetime.Singleton);
 
             // UseCase
+            builder.Register<LoadingUseCase>(Lifetime.Singleton);
             builder.Register<SoundUseCase>(Lifetime.Singleton);
 
             // Presenter
             builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>
             {
+                entryPoints.Add<LoadingPresenter>();
                 entryPoints.Add<SoundPresenter>();
             });
 
