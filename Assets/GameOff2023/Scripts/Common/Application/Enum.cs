@@ -8,6 +8,7 @@ namespace GameOff2023.Common
         Clear,
         Fail,
         Loading,
+        Register,
     }
 
     public enum BgmType

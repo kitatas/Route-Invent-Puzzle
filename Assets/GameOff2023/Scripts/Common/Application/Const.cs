@@ -2,6 +2,8 @@ namespace GameOff2023.Common
 {
     public sealed class ModalConfig
     {
+        public const float ANIMATION_TIME = 0.3f;
+
         // container name
         public const string INGAME_CONTAINER = "InGameModalContainer";
 
@@ -12,6 +14,7 @@ namespace GameOff2023.Common
         public const string CLEAR_PATH = BASE_PATH + "/Clear";
         public const string FAIL_PATH = BASE_PATH + "/Fail";
         public const string LOADING_PATH = BASE_PATH + "/Loading";
+        public const string REGISTER_PATH = BASE_PATH + "/Register";
     }
 
     public sealed class PageConfig

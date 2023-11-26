@@ -17,7 +17,7 @@ namespace GameOff2023.Boot.Presentation.Controller
             // NOTE: 起動前に読み込み必要なもの
             await UniTask.Yield(token);
 
-            return BootState.None;
+            return BootState.Login;
         }
     }
 }
