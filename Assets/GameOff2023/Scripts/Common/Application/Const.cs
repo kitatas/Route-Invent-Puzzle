@@ -28,6 +28,14 @@ namespace GameOff2023.Common
         public const string GAME_PATH = BASE_PATH + "/Game";
     }
 
+    public sealed class ExceptionConfig
+    {
+        public const string NOT_FOUND_DATA = "NOT_FOUND_DATA";
+        public const string UNMATCHED_USER_NAME_RULE = "UNMATCHED_USER_NAME_RULE";
+        public const string FAILED_LOGIN = "FAILED_LOGIN";
+        public const string FAILED_UPDATE_DATA = "FAILED_UPDATE_DATA";
+    }
+
     public sealed class UiConfig
     {
         public const float PUSH_TIME = 0.1f;
@@ -36,6 +44,15 @@ namespace GameOff2023.Common
     public sealed class SoundConfig
     {
         public const float INIT_VOLUME = 0.5f;
+    }
+
+    public sealed class PlayFabConfig
+    {
+        public const string TITLE_ID = "";
+        public const string USER_PROGRESS_KEY = "";
+
+        public const int MIN_NAME_LENGTH = 3;
+        public const int MAX_NAME_LENGTH = 10;
     }
 
     public sealed class SaveConfig

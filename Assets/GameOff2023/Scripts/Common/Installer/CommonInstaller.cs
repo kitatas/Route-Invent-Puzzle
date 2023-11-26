@@ -1,4 +1,5 @@
 using GameOff2023.Common.Data.DataStore;
+using GameOff2023.Common.Data.Entity;
 using GameOff2023.Common.Domain.Repository;
 using GameOff2023.Common.Domain.UseCase;
 using GameOff2023.Common.Presentation.Presenter;
@@ -19,8 +20,12 @@ namespace GameOff2023.Common.Installer
             // DataStore
             builder.RegisterInstance<BgmTable>(bgmTable);
             builder.RegisterInstance<SeTable>(seTable);
+            
+            // Entity
+            builder.Register<UserEntity>(Lifetime.Singleton);
 
             // Repository
+            builder.Register<PlayFabRepository>(Lifetime.Singleton);
             builder.Register<SaveRepository>(Lifetime.Singleton);
             builder.Register<SoundRepository>(Lifetime.Singleton);
 
