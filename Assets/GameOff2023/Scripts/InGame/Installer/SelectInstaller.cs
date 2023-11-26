@@ -1,4 +1,3 @@
-using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.Presenter;
 using GameOff2023.InGame.Presentation.View;
 using UnityEngine;
@@ -13,9 +12,6 @@ namespace GameOff2023.InGame.Installer
 
         protected override void Configure(IContainerBuilder builder)
         {
-            // UseCase
-            builder.Register<SelectUseCase>(Lifetime.Scoped);
-
             // Presenter
             builder.UseEntryPoints(Lifetime.Transient, entryPoints =>
             {

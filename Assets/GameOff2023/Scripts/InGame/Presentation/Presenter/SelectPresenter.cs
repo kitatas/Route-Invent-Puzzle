@@ -8,14 +8,14 @@ namespace GameOff2023.InGame.Presentation.Presenter
 {
     public sealed class SelectPresenter : IStartable
     {
-        private readonly SelectUseCase _selectUseCase;
         private readonly SoundUseCase _soundUseCase;
+        private readonly StageUseCase _stageUseCase;
         private readonly SelectPageView _selectPageView;
 
-        public SelectPresenter(SelectUseCase selectUseCase, SoundUseCase soundUseCase, SelectPageView selectPageView)
+        public SelectPresenter(SoundUseCase soundUseCase, StageUseCase stageUseCase, SelectPageView selectPageView)
         {
-            _selectUseCase = selectUseCase;
             _soundUseCase = soundUseCase;
+            _stageUseCase = stageUseCase;
             _selectPageView = selectPageView;
         }
 
@@ -23,9 +23,9 @@ namespace GameOff2023.InGame.Presentation.Presenter
         {
             _selectPageView.SetUp(x => _soundUseCase.PlaySe(x), PageConfig.TOP_PATH);
 
-            foreach (var levelEntity in _selectUseCase.levelEntities)
+            foreach (var levelEntity in _stageUseCase.levelEntities)
             {
-                _selectPageView.Init(x => _soundUseCase.PlaySe(x), levelEntity, _selectUseCase.SelectLevel);
+                _selectPageView.Init(x => _soundUseCase.PlaySe(x), levelEntity, _stageUseCase.SelectLevel);
             }
         }
     }

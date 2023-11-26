@@ -1,5 +1,5 @@
 using GameOff2023.InGame.Data.Entity;
-using GameOff2023.InGame.Domain.Repository;
+using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.Presenter;
 using GameOff2023.InGame.Presentation.View;
 using VContainer;
@@ -14,8 +14,8 @@ namespace GameOff2023.InGame.Installer
             // Entity
             builder.Register<LevelEntity>(Lifetime.Singleton);
 
-            // Repository
-            builder.Register<StageRepository>(Lifetime.Singleton);
+            // UseCase
+            builder.Register<StageUseCase>(Lifetime.Singleton);
 
             // Presenter
             builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>

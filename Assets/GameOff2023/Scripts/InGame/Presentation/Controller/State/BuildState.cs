@@ -38,9 +38,9 @@ namespace GameOff2023.InGame.Presentation.Controller
             await _stageView.BuildBaseAsync(token);
             await UniTask.Delay(TimeSpan.FromSeconds(StageObjectConfig.SHOW_TIME), cancellationToken: token);
 
-            var stageData = _stageUseCase.GetStageData();
-            _stageView.BuildField(stageData.cells, _playerView, _goalView);
-            _stageView.BuildPanel(stageData.panels);
+            var stageEntity = _stageUseCase.GetStage();
+            _stageView.BuildField(stageEntity.cells, _playerView, _goalView);
+            _stageView.BuildPanel(stageEntity.panels);
             await UniTask.Delay(TimeSpan.FromSeconds(StageObjectConfig.SHOW_TIME), cancellationToken: token);
 
             return GameState.SetUp;
