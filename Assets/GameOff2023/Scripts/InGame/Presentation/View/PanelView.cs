@@ -65,6 +65,7 @@ namespace GameOff2023.InGame.Presentation.View
         public virtual void OnPointerDown(PointerEventData eventData)
         {
             if (_isEdit == false) return;
+            spriteRenderer.sortingLayerName = "Hands";
 
             _startPosition = currentPosition;
 
@@ -77,6 +78,7 @@ namespace GameOff2023.InGame.Presentation.View
         public virtual void OnPointerUp(PointerEventData eventData)
         {
             if (_isEdit == false) return;
+            spriteRenderer.sortingLayerName = "Panel";
 
             var cell = _cellViews.Find(cell => cell.IsEqualPosition(currentXToInt, currentYToInt));
             if (cell)
