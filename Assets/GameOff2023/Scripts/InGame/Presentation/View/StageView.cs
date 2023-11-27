@@ -30,6 +30,11 @@ namespace GameOff2023.InGame.Presentation.View
             {
                 fieldView.BuildField(cellEntity, player, goal);
             }
+
+            foreach (var cellEntity in StageConfig.FRAME_WALL)
+            {
+                fieldView.BuildField(cellEntity, player, goal);
+            }
         }
 
         public void BuildPanel(Data.Entity.PanelEntity[] panelEntities)
