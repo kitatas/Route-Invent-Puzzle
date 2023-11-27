@@ -29,11 +29,11 @@ namespace GameOff2023.Common.Presentation.Presenter
                 {
                     if (x)
                     {
-                        modalContainer.Push(ModalType.Loading.ToResourcePath(), true, modalId: "Loading");
+                        modalContainer.Push(ModalType.Loading.ToResourcePath(), true);
                     }
                     else
                     {
-                        modalContainer.Pop(true, destinationModalId: "Loading");
+                        modalContainer.Pop(true);
                     }
                 })
                 .AddTo(_tokenSource.Token);
