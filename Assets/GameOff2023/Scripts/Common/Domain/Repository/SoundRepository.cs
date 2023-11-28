@@ -1,4 +1,3 @@
-using System;
 using GameOff2023.Common.Data.DataStore;
 
 namespace GameOff2023.Common.Domain.Repository
@@ -19,8 +18,7 @@ namespace GameOff2023.Common.Domain.Repository
             var data = _bgmTable.data.Find(x => x.type == type);
             if (data == null || data.clip == null)
             {
-                // TODO: exception
-                throw new Exception();
+                throw new CrashException(ExceptionConfig.NOT_FOUND_BGM);
             }
 
             return data;
@@ -31,8 +29,7 @@ namespace GameOff2023.Common.Domain.Repository
             var data = _seTable.data.Find(x => x.type == type);
             if (data == null || data.clip == null)
             {
-                // TODO: exception
-                throw new Exception();
+                throw new CrashException(ExceptionConfig.NOT_FOUND_SE);
             }
 
             return data;

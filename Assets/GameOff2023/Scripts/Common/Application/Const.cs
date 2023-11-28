@@ -49,10 +49,23 @@ namespace GameOff2023.Common
 
     public sealed class ExceptionConfig
     {
+        public const string UNKNOWN_ERROR = "UNKNOWN_ERROR";
+        public const string NOT_FOUND_STATE = "NOT_FOUND_STATE";
+        public const string NOT_FOUND_BGM = "NOT_FOUND_BGM";
+        public const string NOT_FOUND_SE = "NOT_FOUND_SE";
+        public const string NOT_FOUND_STAGE = "NOT_FOUND_STAGE";
+        public const string NOT_FOUND_PANEL = "NOT_FOUND_PANEL";
+        public const string NOT_FOUND_STAGE_OBJECT = "NOT_FOUND_STAGE_OBJECT";
         public const string NOT_FOUND_DATA = "NOT_FOUND_DATA";
+        public const string NOT_FOUND_DIRECTION = "NOT_FOUND_DIRECTION";
+        public const string NOT_FOUND_SCALE = "NOT_FOUND_SCALE";
+        public const string NOT_FOUND_OBJECT = "NOT_FOUND_OBJECT";
+        public const string NOT_FOUND_MODAL = "NOT_FOUND_MODAL";
         public const string UNMATCHED_USER_NAME_RULE = "UNMATCHED_USER_NAME_RULE";
         public const string FAILED_LOGIN = "FAILED_LOGIN";
         public const string FAILED_UPDATE_DATA = "FAILED_UPDATE_DATA";
+        public const string FAILED_DESERIALIZE_MASTER = "FAILED_DESERIALIZE_MASTER";
+        public const string FAILED_RESPONSE_DATA = "FAILED_RESPONSE_DATA";
     }
 
     public sealed class UiConfig

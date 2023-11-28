@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using MagicTween;
 using UniEx;
 using UnityEngine;
@@ -95,7 +96,7 @@ namespace GameOff2023.InGame.Presentation.View
                     var panelView = panelViews.Find(x => x.type == cellEntity.type.ToPanel());
                     if (panelView == null)
                     {
-                        throw new Exception();
+                        throw new CrashException(ExceptionConfig.NOT_FOUND_PANEL);
                     }
 
                     var panel = Instantiate(panelView, transform);
@@ -103,7 +104,7 @@ namespace GameOff2023.InGame.Presentation.View
                     stageObjectView = panel;
                     break;
                 default:
-                    throw new Exception();
+                    throw new CrashException(ExceptionConfig.NOT_FOUND_STAGE_OBJECT);
             }
 
             stageObjectView.SetPosition(cellEntity.position);

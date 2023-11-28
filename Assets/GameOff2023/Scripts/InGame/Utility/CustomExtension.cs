@@ -1,4 +1,4 @@
-using System;
+using GameOff2023.Common;
 using UnityEngine;
 
 namespace GameOff2023.InGame
@@ -13,7 +13,7 @@ namespace GameOff2023.InGame
                 Direction.Down => Vector2.down,
                 Direction.Left => Vector2.left,
                 Direction.Right => Vector2.right,
-                _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+                _ => throw new CrashException(ExceptionConfig.NOT_FOUND_DIRECTION)
             };
         }
 
@@ -35,7 +35,7 @@ namespace GameOff2023.InGame
             {
                 ScaleType.Small => Vector3.one * 0.5f,
                 ScaleType.Large => Vector3.one,
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+                _ => throw new CrashException(ExceptionConfig.NOT_FOUND_SCALE)
             };
         }
 
@@ -47,7 +47,7 @@ namespace GameOff2023.InGame
                 Direction.Down => Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f)),
                 Direction.Left => Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f)),
                 Direction.Right => Quaternion.Euler(new Vector3(0.0f, 0.0f, 270.0f)),
-                _ => throw new ArgumentOutOfRangeException(nameof(direction), direction, null)
+                _ => throw new CrashException(ExceptionConfig.NOT_FOUND_DIRECTION)
             };
         }
 
@@ -67,7 +67,7 @@ namespace GameOff2023.InGame
                 ObjectType.StreetLargeHorizontal => PanelType.StreetLargeHorizontal,
                 ObjectType.StreetSmallVertical => PanelType.StreetSmallVertical,
                 ObjectType.StreetSmallHorizontal => PanelType.StreetSmallHorizontal,
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+                _ => throw new CrashException(ExceptionConfig.NOT_FOUND_OBJECT)
             };
         }
     }

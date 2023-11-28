@@ -1,5 +1,3 @@
-using System;
-
 namespace GameOff2023.Common
 {
     public static class CustomExtension
@@ -16,7 +14,7 @@ namespace GameOff2023.Common
                 ModalType.Register => ModalConfig.REGISTER_PATH,
                 ModalType.Update => ModalConfig.UPDATE_PATH,
                 ModalType.Exception => ModalConfig.EXCEPTION_PATH,
-                _ => throw new Exception(),
+                _ => throw new CrashException(ExceptionConfig.NOT_FOUND_MODAL),
             };
         }
     }

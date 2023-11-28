@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -43,7 +42,7 @@ namespace GameOff2023.InGame.Domain.UseCase
             var data = _stages.ToList().Find(x => x.level.IsEqual(_levelEntity));
             if (data == null)
             {
-                throw new Exception();
+                throw new CrashException(ExceptionConfig.NOT_FOUND_STAGE);
             }
 
             return data;

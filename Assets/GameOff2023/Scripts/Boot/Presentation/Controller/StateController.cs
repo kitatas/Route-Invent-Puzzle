@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 
 namespace GameOff2023.Boot.Presentation.Controller
 {
@@ -30,8 +30,7 @@ namespace GameOff2023.Boot.Presentation.Controller
             var currentState = _states.Find(x => x.state == state);
             if (currentState == null)
             {
-                // TODO: ExceptionConfig
-                throw new Exception();
+                throw new CrashException(ExceptionConfig.NOT_FOUND_STATE);
             }
 
             return await currentState.TickAsync(token);
