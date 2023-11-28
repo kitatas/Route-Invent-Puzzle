@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1263053071191726295, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263053071191726295, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263053071191726295, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263053071191726295, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263053071191726295, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1466522939440410925, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
       propertyPath: panelType
       value: 12
@@ -28,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 5318099565757701878, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1505172056, guid: 1fcd0409d0c604e54a34b227ba2d016d, type: 3}
     - target: {fileID: 5644612516981065615, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
       propertyPath: m_Name
       value: Street - SmallHorizontal
