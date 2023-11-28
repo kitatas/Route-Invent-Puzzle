@@ -28,7 +28,9 @@ namespace GameOff2023.InGame.Presentation.Controller
         {
             // FailModalの表示
             var modalContainer = ModalContainer.Find(ModalConfig.INGAME_CONTAINER);
-            await modalContainer.Push(ModalType.Fail.ToResourcePath(), true, modalId: ModalConfig.CLEAR_PATH);
+            await modalContainer
+                .Push(ModalType.Fail.ToResourcePath(), true, modalId: ModalConfig.CLEAR_PATH)
+                .ToUniTask(cancellationToken: token);
 
             if (modalContainer.Modals.TryGetValue(ModalConfig.CLEAR_PATH, out var modal) &&
                 modal is FailModalView failModalView)

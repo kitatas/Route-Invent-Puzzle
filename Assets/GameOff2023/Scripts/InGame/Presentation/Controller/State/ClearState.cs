@@ -27,7 +27,9 @@ namespace GameOff2023.InGame.Presentation.Controller
         {
             // ClearModalの表示
             var modalContainer = ModalContainer.Find(ModalConfig.INGAME_CONTAINER);
-            await modalContainer.Push(ModalType.Clear.ToResourcePath(), true, modalId: ModalConfig.CLEAR_PATH);
+            await modalContainer
+                .Push(ModalType.Clear.ToResourcePath(), true, modalId: ModalConfig.CLEAR_PATH)
+                .ToUniTask(cancellationToken: token);
 
             if (modalContainer.Modals.TryGetValue(ModalConfig.CLEAR_PATH, out var modal) &&
                 modal is ClearModalView clearModalView)

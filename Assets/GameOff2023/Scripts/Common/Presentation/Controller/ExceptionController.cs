@@ -32,7 +32,9 @@ namespace GameOff2023.Common.Presentation.Controller
 
             // ExceptionModalの表示
             var modalContainer = ModalContainer.Find(ModalConfig.INGAME_CONTAINER);
-            await modalContainer.Push(ModalType.Exception.ToResourcePath(), true, modalId: ModalConfig.EXCEPTION_PATH);
+            await modalContainer
+                .Push(ModalType.Exception.ToResourcePath(), true, modalId: ModalConfig.EXCEPTION_PATH)
+                .ToUniTask(cancellationToken: token);
 
             if (modalContainer.Modals.TryGetValue(ModalConfig.EXCEPTION_PATH, out var modal) &&
                 modal is ExceptionModalView exceptionModalView)
