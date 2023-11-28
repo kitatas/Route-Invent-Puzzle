@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1033520805336502369, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
       propertyPath: m_Name
-      value: Clear
+      value: Update
       objectReference: {fileID: 0}
     - target: {fileID: 1598834173584539687, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
       propertyPath: m_Pivot.x
@@ -98,7 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4265752180357393180, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
       propertyPath: m_text
-      value: Congratulations!!
+      value: Please update app version.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480516430502969987, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480516430502969987, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -106,17 +114,17 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1033520805336502369, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2656993201286316209}
+      addedObject: {fileID: 5474774004693438007}
     - targetCorrespondingSourceObject: {fileID: 7628922918305474212, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6436820709606834690}
+      addedObject: {fileID: 5737442665078786541}
   m_SourcePrefab: {fileID: 100100000, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
 --- !u!1 &3102884307554462226 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1033520805336502369, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
   m_PrefabInstance: {fileID: 2691012261096733299}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2656993201286316209
+--- !u!114 &5474774004693438007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3102884307554462226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24f30301a634765af7d2360cb0fbb88, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e4610926b5f4a8a8a7e8a2bb2a27e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _usePrefabNameAsIdentifier: 1
@@ -133,13 +141,14 @@ MonoBehaviour:
   _animationContainer:
     _enterAnimations: []
     _exitAnimations: []
-  closeButtonView: {fileID: 6436820709606834690}
+  closeButtonView: {fileID: 0}
+  openStoreButtonView: {fileID: 5737442665078786541}
 --- !u!1 &5514382443299937495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7628922918305474212, guid: 197ed37d8690b49eea454ac51d02496a, type: 3}
   m_PrefabInstance: {fileID: 2691012261096733299}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6436820709606834690
+--- !u!114 &5737442665078786541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
