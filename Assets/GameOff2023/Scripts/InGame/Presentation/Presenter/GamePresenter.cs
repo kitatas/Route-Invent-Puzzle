@@ -1,7 +1,9 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using GameOff2023.Common.Domain.UseCase;
+using GameOff2023.Common.Presentation.Controller;
 using GameOff2023.InGame.Domain.UseCase;
 using GameOff2023.InGame.Presentation.Controller;
 using GameOff2023.InGame.Presentation.View;
@@ -15,15 +17,17 @@ namespace GameOff2023.InGame.Presentation.Presenter
         private readonly SoundUseCase _soundUseCase;
         private readonly StateUseCase _stateUseCase;
         private readonly StateController _stateController;
+        private readonly ExceptionController _exceptionController;
         private readonly GamePageView _gamePageView;
         private CancellationTokenSource _tokenSource;
 
         public GamePresenter(SoundUseCase soundUseCase, StateUseCase stateUseCase, StateController stateController,
-            GamePageView gamePageView)
+            ExceptionController exceptionController, GamePageView gamePageView)
         {
             _soundUseCase = soundUseCase;
             _stateUseCase = stateUseCase;
             _stateController = stateController;
+            _exceptionController = exceptionController;
             _gamePageView = gamePageView;
             _tokenSource = new CancellationTokenSource();
         }
@@ -53,7 +57,12 @@ namespace GameOff2023.InGame.Presentation.Presenter
             }
             catch (Exception e)
             {
-                // TODO: Retry
+                var type = await _exceptionController.ShowAsync(e, token);
+                if (type == ExceptionType.Retry)
+                {
+                    await ExecAsync(state, token);
+                }
+
                 throw;
             }
         }

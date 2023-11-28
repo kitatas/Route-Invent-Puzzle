@@ -3,6 +3,8 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameOff2023.Boot.Domain.UseCase;
 using GameOff2023.Boot.Presentation.Controller;
+using GameOff2023.Common;
+using GameOff2023.Common.Presentation.Controller;
 using UniRx;
 using VContainer.Unity;
 
@@ -12,12 +14,15 @@ namespace GameOff2023.Boot.Presentation.Presenter
     {
         private readonly StateUseCase _stateUseCase;
         private readonly StateController _stateController;
-        private CancellationTokenSource _tokenSource;
+        private readonly ExceptionController _exceptionController;
+        private readonly CancellationTokenSource _tokenSource;
 
-        public BootPresenter(StateUseCase stateUseCase, StateController stateController)
+        public BootPresenter(StateUseCase stateUseCase, StateController stateController,
+            ExceptionController exceptionController)
         {
             _stateUseCase = stateUseCase;
             _stateController = stateController;
+            _exceptionController = exceptionController;
             _tokenSource = new CancellationTokenSource();
         }
 
@@ -39,7 +44,12 @@ namespace GameOff2023.Boot.Presentation.Presenter
             }
             catch (Exception e)
             {
-                // TODO: Retry
+                var type = await _exceptionController.ShowAsync(e, token);
+                if (type == ExceptionType.Retry)
+                {
+                    await ExecAsync(state, token);
+                }
+
                 throw;
             }
         }
