@@ -2,6 +2,7 @@ using GameOff2023.Common.Data.DataStore;
 using GameOff2023.Common.Data.Entity;
 using GameOff2023.Common.Domain.Repository;
 using GameOff2023.Common.Domain.UseCase;
+using GameOff2023.Common.Presentation.Controller;
 using GameOff2023.Common.Presentation.Presenter;
 using GameOff2023.Common.Presentation.View;
 using UnityEngine;
@@ -32,6 +33,9 @@ namespace GameOff2023.Common.Installer
             // UseCase
             builder.Register<LoadingUseCase>(Lifetime.Singleton);
             builder.Register<SoundUseCase>(Lifetime.Singleton);
+
+            // Controller
+            builder.Register<ExceptionController>(Lifetime.Singleton);
 
             // Presenter
             builder.UseEntryPoints(Lifetime.Singleton, entryPoints =>

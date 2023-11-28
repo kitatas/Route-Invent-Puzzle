@@ -7,6 +7,15 @@ namespace GameOff2023.Common
         Main,
     }
 
+    public enum ExceptionType
+    {
+        None,
+        Cancel,
+        Retry,
+        Reboot,
+        Crash,
+    }
+
     public enum ModalType
     {
         None,
@@ -17,6 +26,7 @@ namespace GameOff2023.Common
         Loading,
         Register,
         Update,
+        Exception,
     }
 
     public enum BgmType

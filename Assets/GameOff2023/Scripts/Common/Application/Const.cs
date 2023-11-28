@@ -30,6 +30,7 @@ namespace GameOff2023.Common
         public const string LOADING_PATH = BASE_PATH + "/Loading";
         public const string REGISTER_PATH = BASE_PATH + "/Register";
         public const string UPDATE_PATH = BASE_PATH + "/Update";
+        public const string EXCEPTION_PATH = BASE_PATH + "/Exception";
     }
 
     public sealed class PageConfig
