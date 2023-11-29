@@ -34,6 +34,11 @@ namespace GameOff2023.InGame.Presentation.View
             _initPosition = position;
         }
 
+        public void SetColor(Color color)
+        {
+            spriteRenderer.color = color;
+        }
+
         public void ResetPosition()
         {
             SetPosition(_initPosition);

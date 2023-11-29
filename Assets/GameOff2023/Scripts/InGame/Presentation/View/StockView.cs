@@ -54,6 +54,7 @@ namespace GameOff2023.InGame.Presentation.View
 
                 var view = Instantiate(panel, transform);
                 view.SetInitPosition(cell.currentPosition);
+                view.SetColor(PanelConfig.STOCK_COLOR);
                 _panels.Add(view);
             }
         }

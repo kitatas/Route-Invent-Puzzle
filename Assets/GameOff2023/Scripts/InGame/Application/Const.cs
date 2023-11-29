@@ -67,6 +67,8 @@ namespace GameOff2023.InGame
     {
         public const float ADJUST_TIME = 0.1f;
         public const float SCALE_UP_RATE = 1.2f;
+
+        public static readonly Color STOCK_COLOR = new Color(1.0f, 1.0f, 0.75f);
     }
 
     public sealed class PlayerConfig
