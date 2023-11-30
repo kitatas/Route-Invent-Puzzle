@@ -7,6 +7,7 @@ namespace GameOff2023.InGame
         SetUp,
         Edit,
         Move,
+        Send,
         Clear,
         Fail,
         Back,
