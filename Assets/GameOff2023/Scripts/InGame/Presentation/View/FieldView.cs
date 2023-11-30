@@ -93,6 +93,10 @@ namespace GameOff2023.InGame.Presentation.View
                 case ObjectType.StreetLargeHorizontal:
                 case ObjectType.StreetSmallVertical:
                 case ObjectType.StreetSmallHorizontal:
+                case ObjectType.TurnUp:
+                case ObjectType.TurnDown:
+                case ObjectType.TurnLeft:
+                case ObjectType.TurnRight:
                     var panelView = panelViews.Find(x => x.type == cellEntity.type.ToPanel());
                     if (panelView == null)
                     {

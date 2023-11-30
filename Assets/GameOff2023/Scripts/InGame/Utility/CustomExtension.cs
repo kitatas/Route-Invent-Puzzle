@@ -67,6 +67,10 @@ namespace GameOff2023.InGame
                 ObjectType.StreetLargeHorizontal => PanelType.StreetLargeHorizontal,
                 ObjectType.StreetSmallVertical => PanelType.StreetSmallVertical,
                 ObjectType.StreetSmallHorizontal => PanelType.StreetSmallHorizontal,
+                ObjectType.TurnUp => PanelType.TurnUp,
+                ObjectType.TurnDown => PanelType.TurnDown,
+                ObjectType.TurnLeft => PanelType.TurnLeft,
+                ObjectType.TurnRight => PanelType.TurnRight,
                 _ => throw new CrashException(ExceptionConfig.NOT_FOUND_OBJECT)
             };
         }

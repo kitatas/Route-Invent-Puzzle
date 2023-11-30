@@ -54,6 +54,10 @@ namespace GameOff2023.InGame
         StreetLargeHorizontal = 14,
         StreetSmallVertical = 15,
         StreetSmallHorizontal = 16,
+        TurnUp = 17,
+        TurnDown = 18,
+        TurnLeft = 19,
+        TurnRight = 20,
     }
 
     public enum PanelType
@@ -71,6 +75,10 @@ namespace GameOff2023.InGame
         StreetLargeHorizontal = 10,
         StreetSmallVertical = 11,
         StreetSmallHorizontal = 12,
+        TurnUp = 13,
+        TurnDown = 14,
+        TurnLeft = 15,
+        TurnRight = 16,
     }
 
     public enum CellType
