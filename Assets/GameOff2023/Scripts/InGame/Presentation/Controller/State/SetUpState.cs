@@ -7,10 +7,12 @@ namespace GameOff2023.InGame.Presentation.Controller
     public sealed class SetUpState : BaseState
     {
         private readonly PlayerView _playerView;
+        private readonly StageView _stageView;
 
-        public SetUpState(PlayerView playerView)
+        public SetUpState(PlayerView playerView, StageView stageView)
         {
             _playerView = playerView;
+            _stageView = stageView;
         }
 
         public override GameState state => GameState.SetUp;
@@ -23,6 +25,7 @@ namespace GameOff2023.InGame.Presentation.Controller
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
             _playerView.SetUp();
+            _stageView.SetUp();
 
             await UniTask.Yield(token);
             return GameState.Edit;

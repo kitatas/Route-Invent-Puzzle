@@ -111,6 +111,14 @@ namespace GameOff2023.InGame.Presentation.View
             stageObjectView.Show(StageObjectConfig.SHOW_TIME);
         }
 
+        public void SetUpItem()
+        {
+            foreach (var item in _items)
+            {
+                item.SetUp();
+            }
+        }
+
         public bool IsAllItemPicked()
         {
             return _items.All(x => x.isPicked);
