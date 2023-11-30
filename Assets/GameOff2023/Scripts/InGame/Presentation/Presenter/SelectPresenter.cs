@@ -23,9 +23,9 @@ namespace GameOff2023.InGame.Presentation.Presenter
         {
             _selectPageView.SetUp(x => _soundUseCase.PlaySe(x), PageConfig.TOP_PATH);
 
-            foreach (var levelEntity in _stageUseCase.levelEntities)
+            foreach (var progressEntity in _stageUseCase.progressEntities)
             {
-                _selectPageView.Init(x => _soundUseCase.PlaySe(x), levelEntity, _stageUseCase.SelectLevel);
+                _selectPageView.Init(x => _soundUseCase.PlaySe(x), progressEntity, _stageUseCase.SelectLevel);
             }
         }
     }

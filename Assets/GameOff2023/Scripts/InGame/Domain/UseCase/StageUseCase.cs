@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameOff2023.Common;
+using GameOff2023.Common.Data.Entity;
 using GameOff2023.Common.Domain.Repository;
 using GameOff2023.InGame.Data.Entity;
 
@@ -12,11 +13,13 @@ namespace GameOff2023.InGame.Domain.UseCase
     {
         private StageEntity[] _stages;
         private readonly LevelEntity _levelEntity;
+        private readonly UserEntity _userEntity;
         private readonly PlayFabRepository _playFabRepository;
 
-        public StageUseCase(LevelEntity levelEntity, PlayFabRepository playFabRepository)
+        public StageUseCase(LevelEntity levelEntity, UserEntity userEntity, PlayFabRepository playFabRepository)
         {
             _levelEntity = levelEntity;
+            _userEntity = userEntity;
             _playFabRepository = playFabRepository;
         }
 
@@ -26,10 +29,10 @@ namespace GameOff2023.InGame.Domain.UseCase
             _stages = masterData.DeserializeMaster<StageEntity[]>(PlayFabConfig.MASTER_STAGE_KEY);
         }
 
-        public List<LevelEntity> levelEntities =>
+        public List<ProgressEntity> progressEntities =>
             _stages
-                .Select(x => x.level)
-                .OrderBy(x => x.value)
+                .Select(x => new ProgressEntity(x.level, _userEntity.progressEntity))
+                .OrderBy(x => x.level)
                 .ToList();
 
         public void SelectLevel(LevelEntity levelEntity)
