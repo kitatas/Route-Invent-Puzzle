@@ -31,7 +31,11 @@ PrefabInstance:
     - target: {fileID: 5318099565757701878, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1505172056, guid: 1fcd0409d0c604e54a34b227ba2d016d, type: 3}
+      objectReference: {fileID: 1835195121, guid: 1fcd0409d0c604e54a34b227ba2d016d, type: 3}
+    - target: {fileID: 5318099565757701878, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5644612516981065615, guid: fa41fe1e00fb445518cf45e24230a97d, type: 3}
       propertyPath: m_Name
       value: Street - SmallVertical
