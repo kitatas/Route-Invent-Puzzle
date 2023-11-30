@@ -44,7 +44,8 @@ namespace GameOff2023.InGame.Presentation.View
 
         protected override void TriggerEnterPlayer(PlayerView player)
         {
-            if (player.direction.IsEnter(scaleDown) && player.scaleType == ScaleType.Large)
+            if ((player.direction.IsEnter(scaleDown) == false && player.direction.IsEnter(scaleUp) == false) ||
+                (player.direction.IsEnter(scaleDown) && player.scaleType == ScaleType.Large))
             {
                 player.SetDead();
             }
