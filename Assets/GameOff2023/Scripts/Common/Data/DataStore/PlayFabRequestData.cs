@@ -32,5 +32,16 @@ namespace GameOff2023.Common.Data.DataStore
                 DisplayName = nameEntity.name,
             };
         }
+
+        public static UpdateUserDataRequest UpdateUserDataRequest(UserProgressEntity progressEntity)
+        {
+            return new UpdateUserDataRequest
+            {
+                Data = new Dictionary<string, string>
+                {
+                    { PlayFabConfig.USER_PROGRESS_KEY, progressEntity.ToJson() },
+                },
+            };
+        }
     }
 }

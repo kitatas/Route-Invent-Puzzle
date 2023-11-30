@@ -24,6 +24,7 @@ namespace GameOff2023.InGame.Installer
 
             // UseCase
             builder.Register<StateUseCase>(Lifetime.Scoped);
+            builder.Register<UserProgressUseCase>(Lifetime.Scoped);
 
             // Controller
             builder.Register<StateController>(Lifetime.Scoped);

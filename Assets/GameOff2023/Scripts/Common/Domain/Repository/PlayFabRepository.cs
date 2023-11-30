@@ -85,5 +85,17 @@ namespace GameOff2023.Common.Domain.Repository
 
             return new PlayFabResponseData.MasterData(data);
         }
+
+        public async UniTask UpdateUserProgressAsync(Data.Entity.UserProgressEntity progressEntity,
+            CancellationToken token)
+        {
+            await PlayFabHelper.CallApiAsync<UpdateUserDataRequest, UpdateUserDataResult>(
+                PlayFabRequestData.UpdateUserDataRequest(progressEntity),
+                PlayFabClientAPI.UpdateUserData,
+                _ => new RetryException(ExceptionConfig.FAILED_UPDATE_DATA),
+                new RetryException(ExceptionConfig.FAILED_UPDATE_DATA),
+                token
+            );
+        }
     }
 }

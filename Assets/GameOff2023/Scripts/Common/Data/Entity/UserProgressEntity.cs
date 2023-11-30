@@ -15,11 +15,16 @@ namespace GameOff2023.Common.Data.Entity
             };
         }
 
+        public bool IsUpdate(LevelEntity levelEntity)
+        {
+            return levelEntity.value > level;
+        }
+
         public UserProgressEntity Update(LevelEntity levelEntity)
         {
             return new UserProgressEntity
             {
-                level = levelEntity.value > level ? levelEntity.value : level,
+                level = IsUpdate(levelEntity) ? levelEntity.value : level,
             };
         }
 
