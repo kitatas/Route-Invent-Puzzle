@@ -12,13 +12,13 @@ namespace GameOff2023.InGame.Presentation.View
 
         public override void ExecAction(PlayerView player)
         {
-            if (_isCurving)
-            {
-                return;
-            }
-
             if (currentPosition.GetSqrLength(player.currentPosition) < StageConfig.JUDGE_DISTANCE)
             {
+                if (_isCurving)
+                {
+                    return;
+                }
+
                 if (player.direction.IsEnter(direction1))
                 {
                     player.SetDirection(direction2);
@@ -36,7 +36,10 @@ namespace GameOff2023.InGame.Presentation.View
                 }
 
                 _isCurving = true;
-                this.Delay(1.0f, () => _isCurving = false);
+            }
+            else
+            {
+                _isCurving = false;
             }
         }
 

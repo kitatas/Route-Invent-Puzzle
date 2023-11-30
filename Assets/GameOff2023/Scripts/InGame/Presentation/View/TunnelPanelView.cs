@@ -12,13 +12,13 @@ namespace GameOff2023.InGame.Presentation.View
 
         public override void ExecAction(PlayerView player)
         {
-            if (_isScale)
-            {
-                return;
-            }
-
             if (currentPosition.GetSqrLength(player.currentPosition) < StageConfig.JUDGE_DISTANCE)
             {
+                if (_isScale)
+                {
+                    return;
+                }
+
                 if (player.direction.IsEnter(scaleDown) && player.scaleType == ScaleType.Small)
                 {
                     player.SetDirection(scaleUp);
@@ -38,7 +38,10 @@ namespace GameOff2023.InGame.Presentation.View
                 }
 
                 _isScale = true;
-                this.Delay(1.0f, () => _isScale = false);
+            }
+            else
+            {
+                _isScale = false;
             }
         }
 
