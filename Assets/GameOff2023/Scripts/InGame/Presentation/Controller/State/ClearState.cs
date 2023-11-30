@@ -37,9 +37,10 @@ namespace GameOff2023.InGame.Presentation.Controller
                 // closeボタン押下待ち
                 clearModalView.SetUp(x => _soundUseCase.PlaySe(x));
                 await clearModalView.PushCloseAsync(token);
+                await UniTaskHelper.DelayAsync(ModalConfig.ANIMATION_TIME, token);
             }
 
-            return GameState.Back;
+            return GameState.Send;
         }
     }
 }

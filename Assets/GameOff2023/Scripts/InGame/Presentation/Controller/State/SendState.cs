@@ -29,7 +29,7 @@ namespace GameOff2023.InGame.Presentation.Controller
             await _userProgressUseCase.SendProgressAsync(token);
             await _loadingUseCase.SetAsync(false, token);
 
-            return GameState.Clear;
+            return GameState.Back;
         }
     }
 }
