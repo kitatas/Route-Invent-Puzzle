@@ -9,6 +9,7 @@ namespace GameOff2023.InGame.Presentation.View
         public void Init(Action<SeType> playSe, Action reset)
         {
             base.Init(playSe);
+            Activate(false);
             AddPushEvent(() => reset?.Invoke());
         }
     }

@@ -65,7 +65,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             SetDirection(PlayerConfig.DIRECTIONS[_directionIndex]);
             SetScaleType(ScaleType.Large);
-            Show(PlayerConfig.ADJUST_TIME);
+            Show(StageObjectConfig.SHOW_TIME);
             _isDead.Value = false;
             SetPosition(_startPosition);
         }

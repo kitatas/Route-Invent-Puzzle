@@ -1,5 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using GameOff2023.InGame.Presentation.View;
 
 namespace GameOff2023.InGame.Presentation.Controller
@@ -26,8 +27,8 @@ namespace GameOff2023.InGame.Presentation.Controller
         {
             _playerView.SetUp();
             _stageView.SetUp();
+            await UniTaskHelper.DelayAsync(StageObjectConfig.SHOW_TIME, token);
 
-            await UniTask.Yield(token);
             return GameState.Edit;
         }
     }
