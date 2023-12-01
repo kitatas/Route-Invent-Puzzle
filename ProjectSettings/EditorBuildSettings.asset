@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/GameOff2023/Scenes/Boot.unity
+    guid: 1dd1107f80006475b9f18211da41ad68
+  - enabled: 1
     path: Assets/GameOff2023/Scenes/Main.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects: {}
