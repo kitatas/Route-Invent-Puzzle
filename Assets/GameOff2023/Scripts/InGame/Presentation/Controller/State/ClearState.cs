@@ -10,10 +10,12 @@ namespace GameOff2023.InGame.Presentation.Controller
     public sealed class ClearState : BaseState
     {
         private readonly SoundUseCase _soundUseCase;
+        private readonly ClearView _clearView;
 
-        public ClearState(SoundUseCase soundUseCase)
+        public ClearState(SoundUseCase soundUseCase, ClearView clearView)
         {
             _soundUseCase = soundUseCase;
+            _clearView = clearView;
         }
 
         public override GameState state => GameState.Clear;
@@ -25,6 +27,9 @@ namespace GameOff2023.InGame.Presentation.Controller
 
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
+            // Clear時の演出再生
+            await _clearView.PlayAsync(token);
+
             // ClearModalの表示
             var modalContainer = ModalContainer.Find(ModalConfig.INGAME_CONTAINER);
             await modalContainer

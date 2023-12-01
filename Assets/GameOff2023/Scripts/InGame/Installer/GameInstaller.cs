@@ -47,6 +47,7 @@ namespace GameOff2023.InGame.Installer
             builder.RegisterInstance<EditCompButtonView>(editCompButtonView);
             builder.RegisterInstance<ResetButtonView>(resetButtonView);
             builder.RegisterInstance<GamePageView>(gamePageView);
+            builder.RegisterComponentInHierarchy<ClearView>();
             builder.RegisterComponentInNewPrefab<GoalView>(goalView, Lifetime.Scoped);
             builder.RegisterComponentInNewPrefab<PlayerView>(playerView, Lifetime.Scoped);
             builder.RegisterComponentInHierarchy<StageView>();
