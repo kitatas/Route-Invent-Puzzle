@@ -77,8 +77,16 @@ MonoBehaviour:
   _identifier: 
   _renderingOrder: 0
   _animationContainer:
-    _pushEnterAnimations: []
-    _pushExitAnimations: []
+    _pushEnterAnimations:
+    - _partnerPageIdentifierRegex: 
+      _assetType: 1
+      _animationBehaviour: {fileID: 0}
+      _animationObject: {fileID: 11400000, guid: b7b4566cb387b48f59f76956a1fbf02a, type: 2}
+    _pushExitAnimations:
+    - _partnerPageIdentifierRegex: 
+      _assetType: 1
+      _animationBehaviour: {fileID: 0}
+      _animationObject: {fileID: 11400000, guid: cc707d0dcd4404be6893744d215573cc, type: 2}
     _popEnterAnimations: []
     _popExitAnimations: []
   closeButtonView: {fileID: 6341605441556089552}
