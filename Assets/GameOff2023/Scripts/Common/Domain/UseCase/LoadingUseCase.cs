@@ -14,7 +14,7 @@ namespace GameOff2023.Common.Domain.UseCase
         public async UniTask SetAsync(bool value, CancellationToken token)
         {
             Set(value);
-            await UniTaskHelper.DelayAsync(ModalConfig.ANIMATION_TIME, token);
+            await UniTaskHelper.DelayAsync(ModalConfig.ANIMATION_TIME + 0.1f, token);
         }
     }
 }
