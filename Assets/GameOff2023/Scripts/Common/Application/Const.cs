@@ -2,14 +2,14 @@ namespace GameOff2023.Common
 {
     public sealed class AppConfig
     {
-        public const int MAJOR_VERSION = 0;
-        public const int MINOR_VERSION = 1;
+        public const int MAJOR_VERSION = 1;
+        public const int MINOR_VERSION = 0;
         public static readonly string APP_VERSION = $"{MAJOR_VERSION.ToString()}.{MINOR_VERSION.ToString()}";
     }
 
     public sealed class UrlConfig
     {
-        public const string APP_NAME = "CommanDungeon";
+        public const string APP_NAME = "RIPuzzle";
         public const string DEVELOPER_APP = "https://play.google.com/store/apps/developer?id=KitaLab";
         public const string APP = "https://play.google.com/store/apps/details?id=com.KitaLab." + APP_NAME;
     }
@@ -36,7 +36,7 @@ namespace GameOff2023.Common
     public sealed class PageConfig
     {
         public const float ANIMATION_TIME = 0.3f;
-        
+
         // container name
         public const string INGAME_CONTAINER = "InGamePageContainer";
 
