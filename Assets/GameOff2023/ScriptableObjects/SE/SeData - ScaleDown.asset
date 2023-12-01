@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a546f0897e49df978219d1c6530eec, type: 3}
-  m_Name: BgmData - Main
+  m_Script: {fileID: 11500000, guid: b9e4ff68a31c432b9cdb388dab9b8be4, type: 3}
+  m_Name: SeData - ScaleDown
   m_EditorClassIdentifier: 
-  bgmType: 2
-  audioClip: {fileID: 8300000, guid: 5237e60ad9cac419d81d430523edebca, type: 3}
+  seType: 7
+  audioClip: {fileID: 8300000, guid: 73f90543777004c1590e9a32246eff1d, type: 3}
