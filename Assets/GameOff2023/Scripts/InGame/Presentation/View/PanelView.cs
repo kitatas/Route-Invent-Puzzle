@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GameOff2023.Common;
 using MagicTween;
 using UniEx;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace GameOff2023.InGame.Presentation.View
         private CameraView _cameraView;
         private List<CellView> _cellViews;
         private Func<(PanelView, Vector3), PanelView> _findPanel;
+        private Action<SeType> _playSe;
         private bool _isEdit;
         private Vector3 _initPosition;
         private Vector3 _startPosition;
@@ -44,6 +46,11 @@ namespace GameOff2023.InGame.Presentation.View
             SetPosition(_initPosition);
         }
 
+        public void SetPlaySe(Action<SeType> playSe)
+        {
+            _playSe = playSe;
+        }
+
         public void SetIsEdit(bool value)
         {
             _isEdit = value;
@@ -71,6 +78,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             if (_isEdit == false) return;
             spriteRenderer.sortingLayerName = "Hands";
+            _playSe?.Invoke(SeType.Hand);
 
             _startPosition = currentPosition;
 
@@ -84,6 +92,7 @@ namespace GameOff2023.InGame.Presentation.View
         {
             if (_isEdit == false) return;
             spriteRenderer.sortingLayerName = "Panel";
+            _playSe?.Invoke(SeType.Hand);
 
             var cell = _cellViews.Find(cell => cell.IsEqualPosition(currentXToInt, currentYToInt));
             if (cell)

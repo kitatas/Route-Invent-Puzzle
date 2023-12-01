@@ -1,5 +1,7 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using MagicTween;
 using UniEx;
 using UniRx;
@@ -22,6 +24,14 @@ namespace GameOff2023.InGame.Presentation.View
         private Vector3 _startPosition;
         private bool _isEdit;
         private int _directionIndex;
+        private Action<SeType> _playSe;
+
+        // FIXME: 暫定対応
+        [VContainer.Inject]
+        private void Construct(Common.Domain.UseCase.SoundUseCase soundUseCase)
+        {
+            _playSe = x => soundUseCase.PlaySe(x);
+        }
 
         protected override void Awake()
         {
@@ -59,6 +69,11 @@ namespace GameOff2023.InGame.Presentation.View
                 .AddTo(this);
 
             _directionIndex = 0;
+        }
+
+        public void PlaySe(SeType type)
+        {
+            _playSe?.Invoke(type);
         }
 
         public void SetUp()
@@ -124,6 +139,7 @@ namespace GameOff2023.InGame.Presentation.View
         public void OnPointerDown(PointerEventData eventData)
         {
             if (_isEdit == false) return;
+            _playSe?.Invoke(SeType.Hand);
 
             _directionIndex.RepeatIncrement(0, PlayerConfig.DIRECTIONS.GetLastIndex());
             SetDirection(PlayerConfig.DIRECTIONS[_directionIndex]);

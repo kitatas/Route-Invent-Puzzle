@@ -1,5 +1,7 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Presentation.View
@@ -37,14 +39,14 @@ namespace GameOff2023.InGame.Presentation.View
             }
         }
 
-        public void BuildPanel(Data.Entity.PanelEntity[] panelEntities)
+        public void BuildPanel(Data.Entity.PanelEntity[] panelEntities, Action<SeType> playSe)
         {
             var index = 0;
             foreach (var panelEntity in panelEntities)
             {
                 for (int j = 0; j < panelEntity.num; j++)
                 {
-                    stockView.BuildPanel(index++, panelEntity);
+                    stockView.BuildPanel(index++, panelEntity, playSe);
                 }
             }
 

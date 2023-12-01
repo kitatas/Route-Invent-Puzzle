@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameOff2023.Common;
 using MagicTween;
 using UniEx;
 using UnityEngine;
@@ -42,7 +43,7 @@ namespace GameOff2023.InGame.Presentation.View
             await UniTask.Delay(TimeSpan.FromSeconds(duration), cancellationToken: token);
         }
 
-        public void BuildPanel(int index, Data.Entity.PanelEntity panelEntity)
+        public void BuildPanel(int index, Data.Entity.PanelEntity panelEntity, Action<SeType> playSe)
         {
             if (_stocks.TryGetValue(index, out var cell))
             {
@@ -55,6 +56,7 @@ namespace GameOff2023.InGame.Presentation.View
                 var view = Instantiate(panel, transform);
                 view.SetInitPosition(cell.currentPosition);
                 view.SetColor(PanelConfig.STOCK_COLOR);
+                view.SetPlaySe(playSe);
                 _panels.Add(view);
             }
         }

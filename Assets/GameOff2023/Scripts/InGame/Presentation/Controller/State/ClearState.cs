@@ -28,6 +28,7 @@ namespace GameOff2023.InGame.Presentation.Controller
         public override async UniTask<GameState> TickAsync(CancellationToken token)
         {
             // Clear時の演出再生
+            _soundUseCase.PlaySe(SeType.Goal);
             await _clearView.PlayAsync(token);
 
             // ClearModalの表示

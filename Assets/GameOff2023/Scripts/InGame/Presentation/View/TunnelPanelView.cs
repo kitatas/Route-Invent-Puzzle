@@ -1,3 +1,4 @@
+using GameOff2023.Common;
 using UniEx;
 using UnityEngine;
 
@@ -24,12 +25,14 @@ namespace GameOff2023.InGame.Presentation.View
                     player.SetDirection(scaleUp);
                     player.SetPosition(transform.position);
                     player.SetScaleType(ScaleType.Large);
+                    player.PlaySe(SeType.ScaleUp);
                 }
                 else if (player.direction.IsEnter(scaleUp) && player.scaleType == ScaleType.Large)
                 {
                     player.SetDirection(scaleDown);
                     player.SetPosition(transform.position);
                     player.SetScaleType(ScaleType.Small);
+                    player.PlaySe(SeType.ScaleDown);
                 }
                 else
                 {

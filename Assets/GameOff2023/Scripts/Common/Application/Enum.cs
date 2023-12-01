@@ -41,5 +41,11 @@ namespace GameOff2023.Common
     {
         None,
         Decision,
+        Pop,
+        Hand,
+        Goal,
+        Item,
+        ScaleUp,
+        ScaleDown,
     }
 }

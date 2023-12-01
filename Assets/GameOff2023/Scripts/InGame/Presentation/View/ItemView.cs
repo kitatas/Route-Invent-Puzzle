@@ -1,3 +1,4 @@
+using GameOff2023.Common;
 using UnityEngine;
 
 namespace GameOff2023.InGame.Presentation.View
@@ -14,10 +15,13 @@ namespace GameOff2023.InGame.Presentation.View
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (isPicked) return;
+
             if (other.TryGetComponent<PlayerView>(out var player))
             {
                 isPicked = true;
                 Hide(StageObjectConfig.HIDE_TIME);
+                player.PlaySe(SeType.Item);
             }
         }
     }
