@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Route.Invent.Puzzle.</title>
+    <link>https://kitatas.github.io/Route-Invent-Puzzle/</link>
+    <description>Recent content on Route.Invent.Puzzle.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2023, KitaLab.</copyright><atom:link href="https://kitatas.github.io/Route-Invent-Puzzle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Credit</title>
+      <link>https://kitatas.github.io/Route-Invent-Puzzle/credit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kitatas.github.io/Route-Invent-Puzzle/credit/</guid>
+      <description>Credit  Developer  ｷﾀ (kita)  twitter: @atasfrznnks e-mail: 315kitatas10703@gmail.com    Sound  OtoLogic (https://otologic.jp/)  </description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://kitatas.github.io/Route-Invent-Puzzle/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kitatas.github.io/Route-Invent-Puzzle/license/</guid>
+      <description>License  Inconsolata Variable Font Copyright 2006 The Inconsolata Project Authors
+This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+ PREAMBLE The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.</description>
+    </item>
+    
+    <item>
+      <title>Privacy Policy</title>
+      <link>https://kitatas.github.io/Route-Invent-Puzzle/policy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kitatas.github.io/Route-Invent-Puzzle/policy/</guid>
+      <description>Privacy Policy  kita built the &amp;ldquo;Route.Invent.Puzzle.&amp;rdquo; app as a Free app. This SERVICE is provided by kita at no cost and is intended for use as is.
+This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+If you choose to use my Service, then you agree to the collection and use of information in relation to this policy.</description>
+    </item>
+    
+  </channel>
+</rss>
