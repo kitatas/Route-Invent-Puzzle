@@ -12,6 +12,11 @@ namespace GameOff2023.Common
         public const string APP_NAME = "RIPuzzle";
         public const string DEVELOPER_APP = "https://play.google.com/store/apps/developer?id=KitaLab";
         public const string APP = "https://play.google.com/store/apps/details?id=com.KitaLab." + APP_NAME;
+
+        public const string INFORMATION = "https://kitatas.github.io/Route-Invent-Puzzle/";
+        public const string CREDIT = INFORMATION + "credit";
+        public const string LICENSE = INFORMATION + "license";
+        public const string POLICY = INFORMATION + "policy";
     }
 
     public sealed class ModalConfig
@@ -61,6 +66,7 @@ namespace GameOff2023.Common
         public const string NOT_FOUND_SCALE = "NOT_FOUND_SCALE";
         public const string NOT_FOUND_OBJECT = "NOT_FOUND_OBJECT";
         public const string NOT_FOUND_MODAL = "NOT_FOUND_MODAL";
+        public const string NOT_FOUND_INFORMATION = "NOT_FOUND_INFORMATION";
         public const string UNMATCHED_USER_NAME_RULE = "UNMATCHED_USER_NAME_RULE";
         public const string FAILED_LOGIN = "FAILED_LOGIN";
         public const string FAILED_UPDATE_DATA = "FAILED_UPDATE_DATA";

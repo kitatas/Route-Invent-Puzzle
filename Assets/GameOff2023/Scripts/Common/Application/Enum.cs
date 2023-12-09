@@ -49,4 +49,13 @@ namespace GameOff2023.Common
         ScaleUp,
         ScaleDown,
     }
+
+    public enum InformationType
+    {
+        None,
+        Credit,
+        License,
+        Policy,
+        OtherApp,
+    }
 }

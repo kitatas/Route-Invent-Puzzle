@@ -17,5 +17,17 @@ namespace GameOff2023.Common
                 _ => throw new CrashException(ExceptionConfig.NOT_FOUND_MODAL),
             };
         }
+
+        public static string ToInformationUrl(this InformationType type)
+        {
+            return type switch
+            {
+                InformationType.Credit => UrlConfig.CREDIT,
+                InformationType.License => UrlConfig.LICENSE,
+                InformationType.Policy => UrlConfig.POLICY,
+                InformationType.OtherApp => UrlConfig.DEVELOPER_APP,
+                _ => throw new CrashException(ExceptionConfig.NOT_FOUND_INFORMATION),
+            };
+        }
     }
 }
