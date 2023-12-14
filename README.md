@@ -3,6 +3,7 @@
 Developed at [Game Off 2023](https://itch.io/jam/game-off-2023).
 
 * [itch](https://kitatas.itch.io/route-invent-puzzle) (ver 1.0)
+* [GooglePlay](https://play.google.com/store/apps/details?id=com.KitaLab.RIPuzzle) (ver 1.0)
 
 ## Unity version
 * 2022.3.7f1
