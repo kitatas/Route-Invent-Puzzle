@@ -13,7 +13,7 @@ namespace GameOff2023.Common
         public const string DEVELOPER_APP = "https://play.google.com/store/apps/developer?id=KitaLab";
         public const string APP = "https://play.google.com/store/apps/details?id=com.KitaLab." + APP_NAME;
 
-        public const string INFORMATION = "https://kitatas.github.io/Route-Invent-Puzzle/";
+        public const string INFORMATION = "https://kitatas.github.io/games/route_invent_puzzle/";
         public const string CREDIT = INFORMATION + "credit";
         public const string LICENSE = INFORMATION + "license";
         public const string POLICY = INFORMATION + "policy";
