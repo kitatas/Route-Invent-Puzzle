@@ -33,7 +33,7 @@ namespace GameOff2023.InGame.Presentation.Controller
             _stageView.Hide(StageObjectConfig.HIDE_TIME);
 
             var pageContainer = PageContainer.Find(PageConfig.INGAME_CONTAINER);
-            pageContainer.Push(PageConfig.SELECT_PATH, true, stack: false);
+            await pageContainer.Push(PageConfig.SELECT_PATH, true, stack: false);
 
             await UniTask.Yield(token);
 

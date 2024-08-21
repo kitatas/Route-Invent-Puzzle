@@ -35,7 +35,7 @@ namespace GameOff2023.InGame.Presentation.Presenter
             await _loadingUseCase.SetAsync(false, token);
 
             var pageContainer = PageContainer.Find(PageConfig.INGAME_CONTAINER);
-            pageContainer.Push(PageConfig.TOP_PATH, true, stack: false);
+            await pageContainer.Push(PageConfig.TOP_PATH, true, stack: false);
         }
 
         public void Dispose()
