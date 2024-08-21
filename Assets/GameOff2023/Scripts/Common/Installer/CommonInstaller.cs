@@ -45,7 +45,7 @@ namespace GameOff2023.Common.Installer
             });
 
             // View
-            builder.RegisterInstance<SoundView>(FindObjectOfType<SoundView>());
+            builder.RegisterInstance<SoundView>(FindAnyObjectByType<SoundView>());
         }
     }
 }

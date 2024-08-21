@@ -24,7 +24,7 @@ namespace GameOff2023.InGame.Presentation.View
 
         public void SetUp(List<CellView> cellViews, Func<(PanelView, Vector3), PanelView> findPanel)
         {
-            _cameraView = FindObjectOfType<CameraView>();
+            _cameraView = FindAnyObjectByType<CameraView>();
             _cellViews = cellViews;
             _findPanel = findPanel;
 

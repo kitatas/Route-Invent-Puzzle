@@ -18,7 +18,7 @@ namespace GameOff2023.Common.Presentation.Controller
 
                 this.UpdateAsObservable()
                     .Where(_ => !canvas.worldCamera)
-                    .Subscribe(_ => canvas.worldCamera = FindObjectOfType<Camera>())
+                    .Subscribe(_ => canvas.worldCamera = FindAnyObjectByType<Camera>())
                     .AddTo(this);
             }
             else
