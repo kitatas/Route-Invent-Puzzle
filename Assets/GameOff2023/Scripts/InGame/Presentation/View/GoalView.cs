@@ -1,4 +1,4 @@
-using MagicTween;
+using DG.Tweening;
 using UniEx;
 
 namespace GameOff2023.InGame.Presentation.View

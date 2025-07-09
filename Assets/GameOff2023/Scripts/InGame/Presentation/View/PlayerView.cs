@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using GameOff2023.Common;
-using MagicTween;
 using UniEx;
 using UniRx;
 using UnityEngine;
@@ -41,7 +41,7 @@ namespace GameOff2023.InGame.Presentation.View
                 .Subscribe(x =>
                 {
                     spriteRenderer.transform
-                        .TweenLocalRotation(x.ToQuaternion(), PlayerConfig.ADJUST_TIME)
+                        .DOLocalRotate(x.ToVector3(), PlayerConfig.ADJUST_TIME)
                         .SetEase(Ease.Linear)
                         .SetLink(gameObject);
                 })
@@ -52,7 +52,7 @@ namespace GameOff2023.InGame.Presentation.View
                 .Subscribe(x =>
                 {
                     transform
-                        .TweenLocalScale(x.ToScale(), PlayerConfig.ADJUST_TIME)
+                        .DOScale(x.ToScale(), PlayerConfig.ADJUST_TIME)
                         .SetEase(Ease.Linear)
                         .SetLink(gameObject);
                 })
@@ -118,7 +118,7 @@ namespace GameOff2023.InGame.Presentation.View
         public async UniTask TweenPositionAsync(Vector3 target, CancellationToken token)
         {
             await transform
-                .TweenPosition(target, PlayerConfig.ADJUST_TIME)
+                .DOMove(target, PlayerConfig.ADJUST_TIME)
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject)
                 .WithCancellation(token);

@@ -39,14 +39,14 @@ namespace GameOff2023.InGame
             };
         }
 
-        public static Quaternion ToQuaternion(this Direction direction)
+        public static Vector3 ToVector3(this Direction direction)
         {
             return direction switch
             {
-                Direction.Up => Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)),
-                Direction.Down => Quaternion.Euler(new Vector3(0.0f, 0.0f, 180.0f)),
-                Direction.Left => Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f)),
-                Direction.Right => Quaternion.Euler(new Vector3(0.0f, 0.0f, 270.0f)),
+                Direction.Up => new Vector3(0.0f, 0.0f, 0.0f),
+                Direction.Down => new Vector3(0.0f, 0.0f, 180.0f),
+                Direction.Left => new Vector3(0.0f, 0.0f, 90.0f),
+                Direction.Right => new Vector3(0.0f, 0.0f, 270.0f),
                 _ => throw new CrashException(ExceptionConfig.NOT_FOUND_DIRECTION)
             };
         }

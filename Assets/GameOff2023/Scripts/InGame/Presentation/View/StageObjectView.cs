@@ -1,4 +1,4 @@
-using MagicTween;
+using DG.Tweening;
 using UniEx;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ namespace GameOff2023.InGame.Presentation.View
             else
             {
                 transform
-                    .TweenPosition(position, duration)
+                    .DOMove(position, duration)
                     .SetEase(Ease.Linear)
                     .SetLink(gameObject);
             }
@@ -36,22 +36,22 @@ namespace GameOff2023.InGame.Presentation.View
 
         public virtual Tween Show(float duration)
         {
-            return Sequence.Create()
+            return DOTween.Sequence()
                 .Append(spriteRenderer
-                    .TweenColorAlpha(1.0f, duration))
+                    .DOFade(1.0f, duration))
                 .Join(transform
-                    .TweenLocalScale(Vector3.one * StageObjectConfig.SHOW_SCALE_RATE, duration))
+                    .DOScale(Vector3.one * StageObjectConfig.SHOW_SCALE_RATE, duration))
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }
 
         public virtual Tween Hide(float duration)
         {
-            return Sequence.Create()
+            return DOTween.Sequence()
                 .Append(spriteRenderer
-                    .TweenColorAlpha(0.0f, duration))
+                    .DOFade(0.0f, duration))
                 .Join(transform
-                    .TweenLocalScale(Vector3.one * StageObjectConfig.HIDE_SCALE_RATE, duration))
+                    .DOScale(Vector3.one * StageObjectConfig.HIDE_SCALE_RATE, duration))
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }

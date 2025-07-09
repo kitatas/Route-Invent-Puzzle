@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using GameOff2023.Common;
-using MagicTween;
 using UniEx;
 using UnityEngine;
 

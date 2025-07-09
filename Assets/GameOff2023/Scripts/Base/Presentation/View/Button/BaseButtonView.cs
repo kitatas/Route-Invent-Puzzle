@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using GameOff2023.Common;
-using MagicTween;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +30,7 @@ namespace GameOff2023.Base.Presentation.View
                 playSe?.Invoke(seType);
 
                 transform
-                    .TweenLocalScale(defaultScale * 0.8f, UiConfig.PUSH_TIME)
+                    .DOScale(0.8f, UiConfig.PUSH_TIME)
                     .SetEase(Ease.Linear)
                     .SetLoops(2, LoopType.Yoyo)
                     .SetLink(gameObject);

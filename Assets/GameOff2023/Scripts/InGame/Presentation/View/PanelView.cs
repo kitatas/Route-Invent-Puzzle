@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using GameOff2023.Common;
-using MagicTween;
 using UniEx;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -83,7 +83,7 @@ namespace GameOff2023.InGame.Presentation.View
             _startPosition = currentPosition;
 
             transform
-                .TweenLocalScale(Vector3.one * PanelConfig.SCALE_UP_RATE, PanelConfig.ADJUST_TIME)
+                .DOScale(Vector3.one * PanelConfig.SCALE_UP_RATE, PanelConfig.ADJUST_TIME)
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }
@@ -116,7 +116,7 @@ namespace GameOff2023.InGame.Presentation.View
             }
 
             transform
-                .TweenLocalScale(Vector3.one * StageObjectConfig.SHOW_SCALE_RATE, PanelConfig.ADJUST_TIME)
+                .DOScale(Vector3.one * StageObjectConfig.SHOW_SCALE_RATE, PanelConfig.ADJUST_TIME)
                 .SetEase(Ease.Linear)
                 .SetLink(gameObject);
         }
